@@ -6,4 +6,4 @@ router.get('/*', async function(req, res){
 	res.render('index');
 });
 
-module.exports = router
+module.exports = router;
