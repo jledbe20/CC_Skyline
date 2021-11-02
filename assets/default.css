@@ -1,0 +1,281 @@
+
+
+header a:link {
+    text-decoration: none;
+    color:#3d6e71;
+}
+
+footer a:link{
+    color: #ffffff;
+    text-decoration: none;
+}
+
+/*                        Public Master Page                      */
+
+/* Main Content Style */
+#public_main{
+    background-color: #ffffff;  
+    padding: 2%;
+}
+
+/* Header Style */
+
+/* Create a header that is a 5 column, 3 row grid for the navigation */
+#public_header{
+    background-color: #ffffff;
+    font-size: 16px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #3d6e71;
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-rows: 50px 50px 50px;
+    padding-top: 20px;
+    border-bottom: 1px solid #3d6e71;
+}
+
+/* Public Naviagation Bar Style */
+
+/* Logo in the grid */
+#ccc_logo_grid_item{
+    grid-column: 1 / 2;
+    grid-row: 1 / 4;
+    align-items: left;
+}
+
+/* Login in the grid to the right upper side */
+#login_header_item{
+    grid-row: 1;
+    grid-column: 5 / 6;
+    text-align: right;
+    margin-right: 10px;
+}
+
+/* Main content of the naviagtion for the public side, 
+will have its own internal grid after being assigned a large area of the current grid for the header */
+#public_header_row{
+    grid-column: 2 / 6;
+    grid-row: 2 / 4;
+    text-align: left;
+    font-size: 20px;
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    padding-right: 20px;
+}
+
+/* Link Navigation Bar Style for Public */
+
+/* Grid position for home link */
+#public_header_grid_item_1{
+    grid-column: 1;
+}
+
+/* Grid position for calendar link */
+#public_header_grid_item_2{
+    grid-column: 2;
+}
+/* Grid position for request link */
+#public_header_grid_item_3{
+    grid-column: 3;
+}
+
+/* Grid position for contact and information dropdown */
+#public_dropdown{
+    grid-column: 4;
+}
+
+/* Dropdown Navigation for Contact and Information */
+/* Dropdown content style */
+#public_contact_dropdown_content{
+    display: none;
+    width: 75%;
+    align-items: left;
+    padding: 5px;
+    background-color: white;
+    list-style-type: none;
+    border: 1px solid black;
+}
+
+/* Dropdown content li styling */
+#public_contact_dropdown_content li{
+    padding: 5px 0px 0px 5px;
+    margin: 3px 3px 3px 3px;
+}
+
+/* Dropdown hover for contact and information */
+#public_dropdown:hover #public_contact_dropdown_content {
+    display: block;
+}
+
+/* Footer Style */
+
+/* Footer for the public master page */
+#public_footer{
+    display: grid;
+    grid-template-rows: 50px 150px;
+    height: 200px;
+    color: #FFFFFF;
+}
+
+#public_sitemap{
+    grid-row: 1;
+    background-color: #284B63;
+    color: #ffffff;
+    text-align: center;
+}
+
+#public_contact_name{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#public_sitemap ul{
+    list-style-type: none;
+    width: inherit;
+}
+
+#public_sitemap ul li{
+    display: inline;
+    color: #ffffff;
+    padding: 0px 20px 20px 0px;
+}
+
+#public_contact_info{
+    grid-row: 2;
+    text-align: center;
+    padding-right: 20px;
+    color: #ffffff;
+    background-color: #353535;
+}
+
+/*                        Private Master Page                      */
+
+/* Main Content Style */
+#private_main{
+    background-color: #ffffff;  
+    padding: 2%;
+}
+
+/* Header Style */
+
+/* Create a header that is a 5 column, 3 row grid for the navigation */
+#private_header{
+    background-color: #ffffff;
+    font-size: 16px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #3d6e71;
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-rows: 50px 50px 50px;
+    padding-top: 20px;
+    border-bottom: 1px solid #3d6e71;
+}
+
+/* Private Naviagation Bar Style */
+
+/* Logo in the grid */
+/* See the in the public master section, exactly the same */
+
+/* Login in the grid to the right upper side */
+#login_header_item{
+    grid-row: 1;
+    grid-column: 5 / 6;
+    text-align: right;
+    margin-right: 10px;
+}
+
+/* Main content of the naviagtion for the public side, 
+will have its own internal grid after being assigned a large area of the current grid for the header */
+#private_header_row{
+    grid-column: 2 / 6;
+    grid-row: 2 / 4;
+    text-align: left;
+    font-size: 20px;
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    padding-right: 20px;
+}
+
+/* Link Navigation Bar Style for Public */
+
+/* Grid position for home link */
+#private_header_grid_item_1{
+    grid-column: 1;
+}
+
+/* Grid position for calendar link */
+#private_header_grid_item_2{
+    grid-column: 2;
+}
+/* Grid position for request link */
+#private_header_grid_item_3{
+    grid-column: 3;
+}
+
+/* Grid position for contact and information dropdown */
+#private_dropdown{
+    grid-column: 4;
+}
+
+/* Dropdown Navigation for  */
+/* Dropdown content style */
+#private_contact_dropdown_content{
+    display: none;
+    width: 75%;
+    align-items: left;
+    padding: 5px;
+    background-color: white;
+    list-style-type: none;
+    border: 1px solid black;
+}
+
+/* Dropdown content li styling */
+#private_contact_dropdown_content li{
+    padding: 5px 0px 0px 5px;
+    margin: 3px 3px 3px 3px;
+}
+
+/* Dropdown hover for contact and information */
+#private_dropdown:hover #private_contact_dropdown_content {
+    display: block;
+}
+
+/* Footer Style */
+
+/* Footer for the public master page */
+#private_footer{
+    display: grid;
+    grid-template-rows: 50px 150px;
+    height: 200px;
+    color: #FFFFFF;
+}
+
+#private_sitemap{
+    grid-row: 1;
+    background-color: #284B63;
+    color: #ffffff;
+    text-align: center;
+}
+
+#private_contact_name{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#private_sitemap ul{
+    list-style-type: none;
+    width: inherit;
+}
+
+#private_sitemap ul li{
+    display: inline;
+    color: #ffffff;
+    padding: 0px 20px 20px 0px;
+}
+
+#private_contact_info{
+    grid-row: 2;
+    text-align: center;
+    padding-right: 20px;
+    color: #ffffff;
+    background-color: #353535;
+}
