@@ -23,7 +23,43 @@
             <p>To see more information about what requests are likely to be rejected, please visit the FAQ page. This will also give you more information about the lighting of the Charlotte skyline and why events are chosen. </p>
 
             <form>
+                <h2>Your Info</h2>
+                <label for='name'>Name:</label>
+                    <input type='text' id='name' name='name'>
+                <label for='email'>Email:</label>
+                    <input type='email' id='email' name='email'>
+                <label for='phone'>Phone:</label>
+                    <input type='phone' id='phone' name='phone'>
+                <hr>
 
+                <h2>Event Info</h2>
+                <label for='eventName'>Name:</label>
+                    <input type='text' id='eventName' name='eventName'>
+                <br>
+                <label for='description'>Description:</label>
+                    <textarea type='text' id='description' name='description'></textarea>
+                <br>
+                <label for='startTime'>Start Time:</label>
+                    <input type="time" id='startTime' name='startTime'>
+                    <input type="date" id='startDate' name='startDate'>
+                <br>
+                <label for='endTime'>End Time:</label>
+                    <input type="time" id='endTime' name='endTime'>
+                    <input type="date" id='endDate' name='endDate'>
+                <br>
+                <label for='isRecurring'>This is a recurring event</label>
+                    <input type='checkbox' id='isRecurring' name='isRecurring'>
+                <hr>
+                <!-- For now, this will stay a simple color input. 
+                    We can upgrade to a custom implementation if we have time-->
+                <label>Color(s)</label>
+                    <input type='color' id='hex1' name='hex1'>
+                <br>
+                <a>+ Add another color</a>
+                <p>Please attach any images that are needed or may be helpful:</p>
+                <label for='file1'>File:</label>
+                <!--TODO: Change this to an image upload-->
+                <input type='text' id='file1' name='file1'>
             </form>
 
         </main>
