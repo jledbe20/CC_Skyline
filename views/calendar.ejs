@@ -4,14 +4,21 @@
 
     <head>
         <title>Charlotte Skyline Lighting</title>
-        <link rel="stylesheet" href="../assets/stylesheets/default.css">
+        <link rel="stylesheet" href="/assets/stylesheets/default.css">
+        <head>
+            <script src="/assets/calendar-19/js/jquery-3.3.1.min.js"></script> 
+                <script> 
+                $(function(){
+                  $("#calendarFrame").load("/assets/calendar-19/index.html"); 
+                });
+                </script> 
+        </head> 
     </head>
 
     <body>
         <%- include ('partials/header'); -%>
         
         <main id="public_main">
-          
           <h1>Events Calendar</h1>
           <hr>
           <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=America%2FNew_York&src=ZW4udXNhI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&color=%230B8043" style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no"></iframe>
