@@ -10,6 +10,10 @@ router.get('/contact', async function (req, res) {
 	res.render('contact');
 });
 
+router.get('/calendar', async function (req, res) {
+	res.render('calendar');
+});
+
 router.get('/faq', async function (req, res) {
 	res.render('faq');
 });
