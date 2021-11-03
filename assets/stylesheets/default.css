@@ -34,6 +34,7 @@ footer a:hover {
 #public_main{
     background-color: #ffffff;  
     padding: 2%;
+    font-size: 18px;
 }
 
 /* Header Style */
@@ -148,10 +149,10 @@ will have its own internal grid after being assigned a large area of the current
 /* Footer Style */
 
 /* Footer for the public master page */
-#public_footer{
+#public_footer {
     display: grid;
     grid-template-rows: 50px 150px;
-    height: 200px;
+    height: 250px;
     color: #FFFFFF;
 }
 
@@ -317,4 +318,17 @@ will have its own internal grid after being assigned a large area of the current
     padding-right: 20px;
     color: #ffffff;
     background-color: #353535;
+}
+
+#center_text {
+    text-align: center;
+}
+
+#centered {
+    marign-left: auto;
+    margin-right: auto;
+}
+
+p {
+    font-size: 20px;
 }
