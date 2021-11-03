@@ -325,10 +325,17 @@ will have its own internal grid after being assigned a large area of the current
 }
 
 #centered {
-    marign-left: auto;
+    display: block;
+    margin-left: auto;
     margin-right: auto;
 }
 
 p {
     font-size: 20px;
+}
+
+hr {
+    height: 1px;
+    border: none;
+    background: black;
 }

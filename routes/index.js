@@ -2,6 +2,10 @@ const Express = require('express');
 
 let router = Express.Router();
 
+router.get('/contact', async function (req, res) {
+	res.render('contact');
+});
+
 router.get('/faq', async function (req, res) {
 	res.render('faq');
 });
