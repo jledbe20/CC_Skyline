@@ -5,9 +5,27 @@ header a:link {
     color:#3d6e71;
 }
 
+header a:visited {
+    text-decoration: none;
+    color: #3d6e71;
+}
+
+header a:hover {
+    text-decoration: underline;
+}
+
 footer a:link{
     color: #ffffff;
     text-decoration: none;
+}
+
+footer a:visited {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
 }
 
 /*                        Public Master Page                      */
@@ -40,6 +58,26 @@ footer a:link{
     grid-column: 1 / 2;
     grid-row: 1 / 4;
     align-items: left;
+}
+
+/* Logo on home page*/
+#ccc_logo_homepage {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+}
+
+/* Welcom div home page */
+#ccc_welcome_message p {
+    border-style: solid;
+    padding: 20px 100px 20px 100px;
+    text-align: center;
+    margin-top: -3px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+    font-size: larger;
 }
 
 /* Login in the grid to the right upper side */
@@ -81,6 +119,7 @@ will have its own internal grid after being assigned a large area of the current
 /* Grid position for contact and information dropdown */
 #public_dropdown{
     grid-column: 4;
+    z-index: 999;
 }
 
 /* Dropdown Navigation for Contact and Information */
