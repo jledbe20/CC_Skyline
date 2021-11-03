@@ -215,8 +215,20 @@ will have its own internal grid after being assigned a large area of the current
 /* Logo in the grid */
 /* See the in the public master section, exactly the same */
 
+/* Welcome user in the grid */
+#welcome_user{
+    grid-row: 1;
+    grid-column: 4 / 5;
+    text-align: center;
+}
+
+#notification_icon{
+    width: 40px;
+    height: 35px;
+}
+
 /* Login in the grid to the right upper side */
-#login_header_item{
+#logout_header_item{
     grid-row: 1;
     grid-column: 5 / 6;
     text-align: right;
@@ -335,6 +347,11 @@ will have its own internal grid after being assigned a large area of the current
     background-color: #353535;
 }
 
+
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+What page(s) is this for?
+*/
+
 #center_text {
     text-align: center;
 }
@@ -358,3 +375,4 @@ hr {
 #smaller_font{
     font-size: 15px;
 }
+
