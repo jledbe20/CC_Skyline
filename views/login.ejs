@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>Charlotte Skyline Lighting</title>
+        <link rel="stylesheet" href="../assets/stylesheets/default.css">
+    </head>
+
+    <body>
+        <%- include ('partials/header'); -%>
+        
+        <main id="public_main">
+          
+          <form id="login_form" action="/faq">
+            <br>
+            <label for='username'>Username:</label>
+            <input type='text' id='name' name='name' placeholder="Enter your username">
+            <br>
+            <label for='password'>Password:</label>
+            <input type='text' id='password' name='password' placeholder="Enter your password">
+            <br>
+            <input type="checkbox" id="saveInfo" name="saveInfo">
+            <label id="smaller_font" for="saveInfo">Remeber me on this device</label><br>
+            <input type="submit" value="Login">
+          </form>
+
+        </main>
+
+        <%- include ('partials/footer'); -%>
+    </body>
+
+</html>

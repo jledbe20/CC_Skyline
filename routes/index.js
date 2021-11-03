@@ -2,6 +2,10 @@ const Express = require('express');
 
 let router = Express.Router();
 
+router.get('/login', async function (req, res) {
+	res.render('login');
+});
+
 router.get('/contact', async function (req, res) {
 	res.render('contact');
 });

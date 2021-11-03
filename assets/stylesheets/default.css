@@ -223,6 +223,21 @@ will have its own internal grid after being assigned a large area of the current
     margin-right: 10px;
 }
 
+/* Login form */
+#login_form{
+    border-style: solid;
+    border-width: 2px;
+    width: 500px;
+    height: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+#login_form input{
+    margin-top: 20px;
+}
+
 /* Main content of the naviagtion for the public side, 
 will have its own internal grid after being assigned a large area of the current grid for the header */
 #private_header_row{
@@ -338,4 +353,8 @@ hr {
     height: 1px;
     border: none;
     background: black;
+}
+
+#smaller_font{
+    font-size: 15px;
 }
