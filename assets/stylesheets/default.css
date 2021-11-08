@@ -218,13 +218,19 @@ will have its own internal grid after being assigned a large area of the current
 /* Welcome user in the grid */
 #welcome_user{
     grid-row: 1;
-    grid-column: 4 / 5;
+    grid-column: 3 / 4;
     text-align: center;
 }
 
 #notification_icon{
     width: 40px;
     height: 35px;
+}
+
+#notification_inbox {
+    grid-row: 1;
+    grid-column: 4 / 5;
+    text-align: right;
 }
 
 /* Login in the grid to the right upper side */
