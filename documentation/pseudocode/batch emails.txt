@@ -1,0 +1,13 @@
+
+switch userFreqSetting
+    case "1 hour":
+        add to batch list
+        lastSentTime = curTime
+    case "4 hours":
+        if curTime - lastSentTime < userFreqSetting:
+            add to batch list
+        lastSentTime = curTime
+    case "12 hours":
+    case "24 hours":
+
+send batch emails

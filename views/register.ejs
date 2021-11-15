@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>Charlotte Skyline Lighting</title>
+        <link rel="stylesheet" href="../assets/stylesheets/default.css">
+    </head>
+
+    <body>
+        <%- include ('partials/header'); -%>
+        
+        <main id="public_main">
+          
+        <form action="/register" method="POST">
+            <input type="text" name="username"
+                placeholder="username">
+            <input type="password" name="password"
+                placeholder="password">
+            <button>Submit</button>
+        </form>
+
+        </main>
+
+        <%- include ('partials/footer'); -%>
+    </body>
+
+</html>
