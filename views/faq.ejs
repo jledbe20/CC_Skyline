@@ -3,8 +3,12 @@
 <html lang="en">
 
     <head>
-        <title>Charlotte Skyline Lighting</title>
-        <link rel="stylesheet" href="../assets/stylesheets/default.css">
+         <title>Charlotte Skyline Lighting</title>
+         <link rel="stylesheet" href="../assets/stylesheets/default.css">
+         <link rel="stylesheet" href="../assets/jquery-ui-1.12.1.custom/jquery-ui.min.css">
+         <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	      <script src="../assets/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+         <script src="../assets/scripts/faq_accordion.js"></script>
     </head>
 
     <body>
@@ -12,9 +16,9 @@
         
         <main id="public_main">
           
-          <h1 id="center_text">About Charlotte Skyline Lights</h1>
+         <h1 id="center_text">About Charlotte Skyline Lights</h1>
           
-          <div id="centered">
+         <div id="centered">
             <p>
                 The Charlotte skyline lights have come to have great meeting to the City of Charlotte,
                 the Charlotte area, and its denizens. The lighting of the skyline has become a sign of
@@ -34,53 +38,70 @@
                 It is all done voluntarily by the companies and properties. These lighting events do not mean any form of mandatory participation by the companies.
                 Each company and property will make the choice to support an event based on their company guidelines and ideals. This means that not every building will light for an event
             </p>
+            
+            <div id="accordion">
+               <h3>What events are not accepted?</h3>
+               <div>
+                  <p>
+                     Any events that do not support a local cause, charity, or a unifying event are not usually accepted. Examples of this are birthdays, baby showers, baby gender reveals, political parties, etc.
+                  </p>
+               </div>
 
-            <h2>What events are not accepted?</h2>
-            <p>
-               Any events that do not support a local cause, charity, or a unifying event are not usually accepted. Examples of this are birthdays, baby showers, baby gender reveals, political parties, etc.
-            </p>
-            <br>
-            <h2>Can I submit an event for something that may cause it to be rejected anyway?</h2>
-            <p>
-               Yes. We accept all submissions. Please keep in mind that if you are aware the event will most likely be rejected, then it most likely will.
-            </p>
-            <br>
-            <h2>I never received any kind of response on my event and it is not listed on the calendar.</h2>
-            <p>
-               CCCP does not send out emails when events are approved or not. Whether it is coming from CCC or from on of their partner companies. Approved events will only appear on the calendar
-               after at least 5 companies agree to lighting for the event request. This is done to ensure that events have a commitment from partners and will be occurring.
-            </p>
-            <br>
-            <h2>My event request followed the guidelines. Why was it not approved?</h2>
-            <p>
-               An event will not show on the calendar until it receives at least 5 companies agreeing to the event request. Your event may have been approved but has not yet or did not gain enough companies
-               that approved to meet that threshold to be put on the calendar. Another reason that your event may not have appeared on the calendar is that the date you requested conflicts with a pre-existing event.
-               Please make sure to check the calendar to see what dates are already taken for events and try to pick one that has no events.
-            </p>
-            <br>
-            <h2>Where can I see which companies and buildings are participating in events?</h2>
-            <p>
-               The public cannot see which companies and buildings have agreed to participate in an event. Because this is an entirely voluntary process not every company will participate in every event.
-               They have their own lighting event commitments that are not part of the partnership with CCC.
-            </p>
-            <br>
-            <h2>I made a mistake on my request form when I submitted it. Can I submit a new form or do I have to contact someone?</h2>
-            <p>
-               You can submit a new form if you want to or you can contact CCC. If you choose to submit a new request please include that this is a new version of the one you submitted earlier in the description of the event.
-            </p>
-            <br>
-            <h2>I need to update a request with a new color or date. How do I do this?</h2>
-            <p>
-               Please contact CCC to get their help with updating your request. Please keep in mind that changing dates of requests could mean that companies are no longer able to participate in your event due to prior commitments on the new dates.
-            </p>
-            <br>
-            <h2>I need my event to light up the skyline in a week. If I put a request in will it be approved in time?</h2>
-            <p>
-               While you can submit a request, it is unlikely to be agreed to by the companies and buildings that partner with CCC. Many of them need at least several weeks lead time to be able to review and plan out the event.
-               Some of the companies plan out their agreements on a monthly or quarterly basis. Submitting your event request as soon as possible, preferably at least a month, is the best way to ensure the companies and buildings
-               have enough lead time to review your event and decide if they would like to participate.
-            </p>
+               <h3>Can I submit an event for something that may cause it to be rejected anyway?</h3>
+               <div>
+                  <p>
+                     Yes. We accept all submissions. Please keep in mind that if you are aware the event will most likely be rejected, then it most likely will.
+                  </p>
+               </div>
 
+               <h3>I never received any kind of response on my event and it is not listed on the calendar.</h3>
+               <div>
+                  <p>
+                     CCCP does not send out emails when events are approved or not. Whether it is coming from CCC or from on of their partner companies. Approved events will only appear on the calendar
+                     after at least 5 companies agree to lighting for the event request. This is done to ensure that events have a commitment from partners and will be occurring.
+                  </p>
+               </div>
+
+               <h3>My event request followed the guidelines. Why was it not approved?</h3>
+               <div>
+                  <p>
+                     An event will not show on the calendar until it receives at least 5 companies agreeing to the event request. Your event may have been approved but has not yet or did not gain enough companies
+                     that approved to meet that threshold to be put on the calendar. Another reason that your event may not have appeared on the calendar is that the date you requested conflicts with a pre-existing event.
+                     Please make sure to check the calendar to see what dates are already taken for events and try to pick one that has no events.
+                  </p>
+               </div>
+               
+               <h3>Where can I see which companies and buildings are participating in events?</h3>
+               <div>
+                  <p>
+                     The public cannot see which companies and buildings have agreed to participate in an event. Because this is an entirely voluntary process not every company will participate in every event.
+                     They have their own lighting event commitments that are not part of the partnership with CCC.
+                  </p>
+               </div>
+
+               <h3>I made a mistake on my request form when I submitted it. Can I submit a new form or do I have to contact someone?</h3>
+               <div>
+                  <p>
+                     You can submit a new form if you want to or you can contact CCC. If you choose to submit a new request please include that this is a new version of the one you submitted earlier in the description of the event.
+                  </p>
+               </div>
+
+               <h3>I need to update a request with a new color or date. How do I do this?</h3>
+               <div>
+                  <p>
+                     Please contact CCC to get their help with updating your request. Please keep in mind that changing dates of requests could mean that companies are no longer able to participate in your event due to prior commitments on the new dates.
+                  </p>
+               </div>
+
+               <h3>I need my event to light up the skyline in a week. If I put a request in will it be approved in time?</h3>
+               <div>
+                  <p>
+                     While you can submit a request, it is unlikely to be agreed to by the companies and buildings that partner with CCC. Many of them need at least several weeks lead time to be able to review and plan out the event.
+                     Some of the companies plan out their agreements on a monthly or quarterly basis. Submitting your event request as soon as possible, preferably at least a month, is the best way to ensure the companies and buildings
+                     have enough lead time to review your event and decide if they would like to participate.
+                  </p>
+               </div>
+            </div>
           </div>
 
         </main>

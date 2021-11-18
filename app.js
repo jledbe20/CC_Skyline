@@ -13,3 +13,4 @@ app.use('/assets/', express.static(path.join(__dirname, 'assets')));
 app.use('/', indexRouter);
 
 app.listen(config.listenPort);
+console.log("Launching! Now listening on port", config.listenPort);
