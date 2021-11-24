@@ -353,6 +353,20 @@ will have its own internal grid after being assigned a large area of the current
     background-color: #353535;
 }
 
+/* Directory Page */
+#member_info {
+    background-color: #284B63;
+    color: #ffffff;
+    padding: 5px;
+    border-radius: 10px;
+    width: 45%;
+    display: inline-block;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-align: center;
+}
 
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 What page(s) is this for?

@@ -2,6 +2,10 @@ const Express = require('express');
 
 let router = Express.Router();
 
+router.get('/directory', async function (req, res) {
+	res.render('directory');
+});
+
 router.get('/login', async function (req, res) {
 	res.render('login');
 });
