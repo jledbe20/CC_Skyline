@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const submitterInfo = new mongoose.Schema({
     submitterID = new Schema.type.ObjectId,
     subName:  {type: String, required: true},
-    phone:  {type: Number, required: true},
+    phone:  {type: String, required: true},
     email:  {type: String, required: true},
 });
 
