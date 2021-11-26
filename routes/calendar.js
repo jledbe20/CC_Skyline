@@ -17,7 +17,6 @@ class CalendarMonth{
     constructor(array){
         this.array = array; // An array of CalendarDays
         this.firstDay = array[0].day; // The first day of the month, num.
-        this.lastDay = array[array.length-1].day; // The last day of the month, num.
     }
 }
 
@@ -34,9 +33,8 @@ function createTestMonth(firstDayOfMonth, numDays){
 }
 
 router.get('/*', async function (req, res) {
-    month = createTestMonth(1, 30);
-    month.array[25].contents = '<b>Thanksgiving</b>'
-    console.log(month);
+    month = createTestMonth(3, 31);
+    month.array[23].contents = '<b>Christmas</b>';
 	res.render('calendar', {month:month});
 });
 
