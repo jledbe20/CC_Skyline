@@ -24,11 +24,32 @@ class CalendarMonth{
             if (day > 6) day = 0;
         }
     }
+
+    addEvent(date, contents){
+        this.array[date-1].contents = contents;
+    }
 }
 
-router.get('/*', async function (req, res) {
-    month = new CalendarMonth('December', 3, 31);
-    month.array[24].contents = '<b>Christmas</b>';
+// Note: Month is zero-indexed.
+function createMonthByYear(month, year){
+    let date = new Date(year, month, 1);
+    let name = date.toLocaleString('default', { month: 'long' });
+    let firstDayOfMonth = date.getDay();
+    // Last date of month is used to find end of month.
+    let lastDate = new Date(year, month + 1, 0);
+    let numDays = lastDate.getDate();
+    return new CalendarMonth(name, firstDayOfMonth, numDays);
+}
+
+router.get('/', async function (req, res) {
+    let now = new Date();
+    let month = now.getMonth();
+    let year = now.getFullYear();
+    res.redirect(`/calendar/${month}/${year}`);
+});
+
+router.get('/:month/:year', async function (req, res){
+    month = createMonthByYear(req.params.month, req.params.year);
 	res.render('calendar', {month:month});
 });
 

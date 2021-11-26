@@ -13,6 +13,7 @@ router.get('/contact', async function (req, res) {
 });
 
 router.use('/calendar', calendarRouter);
+router.use('/calendar/*', calendarRouter);
 
 router.get('/faq', async function (req, res) {
 	res.render('faq');

@@ -11,7 +11,7 @@
     </tr>
     <tr>
     <!--Print blank days for days that don't exist-->
-    <%for (let i=0; i < month.firstDay; i++){%>
+    <%for (let i=0; i < month.array[0].day; i++){%>
         <td></td>
     <%}
     for (let i=0; i < month.array.length; i++){%>
