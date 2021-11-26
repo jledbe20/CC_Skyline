@@ -37,7 +37,6 @@ function createMonthByYear(month, year){
     let firstDayOfMonth = date.getDay();
     // Last date of month is used to find end of month.
     let lastDate = new Date(year, parseInt(month) + 1, 0);
-    console.log(lastDate);
     let numDays = lastDate.getDate();
     return new CalendarMonth(name, firstDayOfMonth, numDays);
 }
