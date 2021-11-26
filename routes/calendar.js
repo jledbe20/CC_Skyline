@@ -14,27 +14,20 @@ class CalendarDay{
 
 // A calendar page (month).
 class CalendarMonth{
-    constructor(array, name){
-        this.array = array; // An array of CalendarDays
+    constructor(name, firstDayOfMonth, numDays){
+        this.array = [];
         this.name = name; //ex 'December'
-        this.firstDay = array[0].day; // The first day of the month, num.
+        let day = firstDayOfMonth;
+        for (let i = 1; i < numDays+1; i++){
+            this.array.push(new CalendarDay(i, day, ''));
+            day++;
+            if (day > 6) day = 0;
+        }
     }
-}
-
-function createTestMonth(name, firstDayOfMonth, numDays){
-    let array = [];
-    let day = firstDayOfMonth;
-    for (let i = 1; i < numDays+1; i++){
-        array.push(new CalendarDay(i, day, ''));
-        day++;
-        if (day > 6) day = 0;
-    }
-    let month = new CalendarMonth(array, name);
-    return month;
 }
 
 router.get('/*', async function (req, res) {
-    month = createTestMonth('December', 3, 31);
+    month = new CalendarMonth('December', 3, 31);
     month.array[24].contents = '<b>Christmas</b>';
 	res.render('calendar', {month:month});
 });
