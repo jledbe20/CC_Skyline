@@ -1,6 +1,8 @@
 const Express = require('express');
+const { appendFile } = require('fs');
 
 let router = Express.Router();
+const calendarRouter = require('./calendar.js');
 
 router.get('/login', async function (req, res) {
 	res.render('login');
@@ -10,9 +12,7 @@ router.get('/contact', async function (req, res) {
 	res.render('contact');
 });
 
-router.get('/calendar', async function (req, res) {
-	res.render('calendar');
-});
+router.use('/calendar', calendarRouter);
 
 router.get('/faq', async function (req, res) {
 	res.render('faq');
