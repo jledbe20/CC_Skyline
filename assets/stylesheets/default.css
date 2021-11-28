@@ -69,7 +69,7 @@ footer a:hover {
     overflow: hidden;
 }
 
-/* Welcom div home page */
+/* Welcome div home page */
 #ccc_welcome_message p {
     border-style: solid;
     padding: 20px 100px 20px 100px;
@@ -185,6 +185,7 @@ will have its own internal grid after being assigned a large area of the current
     padding-right: 20px;
     color: #ffffff;
     background-color: #353535;
+    margin-bottom: -10px;
 }
 
 /*                        Private Master Page                      */
