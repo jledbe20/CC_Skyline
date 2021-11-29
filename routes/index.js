@@ -2,6 +2,10 @@ const Express = require('express');
 
 let router = Express.Router();
 
+router.get('/notifications', async function (req, res) {
+	res.render('notifications');
+});
+
 router.get('/directory', async function (req, res) {
 	res.render('directory');
 });
