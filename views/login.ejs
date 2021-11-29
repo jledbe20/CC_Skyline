@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
     <head>
         <title>Charlotte Skyline Lighting</title>
-        <link rel="stylesheet" href="../assets/stylesheets/default.css">
+        <link rel="stylesheet" href="/assets/stylesheets/default.css">
     </head>
 
     <body>
@@ -12,13 +11,14 @@
         
         <main id="public_main">
           
-          <form id="login_form" action="/calendar">
+          // temporary routing to calendar page
+          <form id="login_form" action="/calendar" method="GET">
             <br>
             <label for='username'>Username:</label>
-            <input type='text' id='name' name='name' placeholder="Enter your username">
+            <input type='text' id='name' name='name' placeholder="Enter your username" required>
             <br>
             <label for='password'>Password:</label>
-            <input type='text' id='password' name='password' placeholder="Enter your password">
+            <input type='password' id='password' name='password' placeholder="Enter your password" required>
             <br>
             <input type="checkbox" id="saveInfo" name="saveInfo">
             <label id="smaller_font" for="saveInfo">Remember me on this device</label><br>
@@ -27,7 +27,7 @@
 
         </main>
 
-        <%- include ('partials/footer'); -%>
+    <%- include ('partials/footer'); -%>
     </body>
 
-</html>
+    </html>

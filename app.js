@@ -84,3 +84,5 @@ app.use('/', indexRouter);
 app.listen(config.listenPort);
 console.log("Launching! Now listening on port", config.listenPort);
 
+console.log("Database port is", config.dbPort);
+
