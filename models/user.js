@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 // Define Schema Types
 
 
-    //going to make a seperate schema for propertyInformation 
+    // going to make a separate schema for propertyInformation 
     const propertyInform = new mongoose.Schema({
         pID = new Schema.type.ObjectId,
         pName:{type: String, required: true},
@@ -23,7 +23,7 @@ const Schema = mongoose.Schema;
 
 
 let userSchema = new Schema({
-    //sets the default mongo _id for each new users, pID 
+    // sets the default mongo _id for each new users, pID 
     _id: new Schema.Types.ObjectId,
     name: {
         firstName: {type: String, required: true},
@@ -43,21 +43,21 @@ let userSchema = new Schema({
     },
 
     title:{
-        type:  String //returns job title if available [Stakeholder, System Adminstrator, Property Managers] 
+        type:  String // returns job title if available [Stakeholder, System Adminstrator, Property Managers] 
     },
 
     company:{
-        type: {type: String, required: true} //return which company this person orignates from 
+        type: {type: String, required: true} // return which company this person orignates from 
     },
 
     propertyInformation: propertyInform,
 
-    //batch setting choices
-    //Weekly, every two weeks, once a month, daily, none, or number of days.
+    // batch setting choices
+    // Weekly, every two weeks, once a month, daily, none, or number of days.
     batchSetting:{type: String},
 
-    //department return a type of industry which this account is associated with, if avaiable.
-    //healthcare, real estate, hospitality, .... etc.   
+    // department return a type of industry which this account is associated with, if available.
+    // healthcare, real estate, hospitality, .... etc.   
     department:{type: String, required: true}
 
 }, { collection: 'CCID users'}
