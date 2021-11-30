@@ -55,7 +55,8 @@ passport.deserializeUser(UserDetails.deserializeUser());
 
 app.use(routes);
 
-UserDetails.register({username:'Jon', active: false}, 'test');
+// manually instantiate user in DB
+// UserDetails.register({username:'Jon', active: false}, 'test');
 // require('./path/to/passport/config/file')(passport);
 
 app.listen(config.listenPort);
