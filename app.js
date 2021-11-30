@@ -3,13 +3,12 @@ const path = require('path');
 const indexRouter = require('./routes/index.js');
 const config = require('./config.js');
 const mongoose = require('mongoose');
-// Requiring Modules
 var expressLayouts = require('express-ejs-layouts');
 const app = express();
 const passport = require('passport');
 const session = require('express-session');
 const UserDetails = require('./userDetails');
-const routes = require('./routes/router.js');
+const passportRouter = require('./routes/router.js');
 require('dotenv').config();
 
 const MONGODB_URI = "mongodb+srv://skylineT:unccSkyline2022@cluster0.59ufx.mongodb.net/";
@@ -28,32 +27,33 @@ app.set('view engine', 'ejs');
 app.set('views', `${__dirname}/views`);
 app.use('/assets/', express.static(path.join(__dirname, 'assets')));
 app.use('/', indexRouter);
-app.use(routes);
 
 // set up view engine and layout
 app.use(expressLayouts);
 app.set('layout', './layout/main');
 app.set('view engine', 'ejs');
 
-app.use(express.urlencoded({ extended: false }));
-
 // Set up session
 app.use(
     session({
-      secret: process.env.SECRET,
+      secret: process.env.SECRET || 'the skyline is lit and all is well',
       resave: false,
       saveUninitialized: true,
     })
-  );
+);
 
+app.use(express.urlencoded({ extended: false }));
+
+// Initialize passport
 app.use(passport.initialize());
 app.use(passport.session());
+
 
 passport.use(UserDetails.createStrategy());
 passport.serializeUser(UserDetails.serializeUser());
 passport.deserializeUser(UserDetails.deserializeUser());
 
-app.use(routes);
+app.use(passportRouter);
 
 // manually instantiate user in DB
 // UserDetails.register({username:'Jon', active: false}, 'test');
