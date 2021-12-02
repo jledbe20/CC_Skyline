@@ -154,6 +154,8 @@ will have its own internal grid after being assigned a large area of the current
     grid-template-rows: 50px 150px;
     height: 250px;
     color: #FFFFFF;
+    clear: both;
+    background-color: #353535;
 }
 
 #public_sitemap{
@@ -184,7 +186,6 @@ will have its own internal grid after being assigned a large area of the current
     text-align: center;
     padding-right: 20px;
     color: #ffffff;
-    background-color: #353535;
 }
 
 /*                        Private Master Page                      */
@@ -366,6 +367,149 @@ will have its own internal grid after being assigned a large area of the current
     margin-top: 5px;
     margin-bottom: 5px;
     text-align: center;
+}
+
+/* Notifications Page */
+aside {
+    width: 28%;
+    border-style: solid;
+    border-width: 2px;
+    height: 500px;
+    float: left;
+    margin-bottom: 10px;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.notification {
+    margin-top: -20px;
+}
+
+.notification :hover{
+    background-color: #284B63;
+    color: #ffffff;
+}
+
+.notification h3 {
+    text-align: center;
+    border-bottom: solid;
+    border-width: 1px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.notification a {
+    text-decoration: none;
+    color: inherit;
+}
+
+#notifications_main {
+    clear: left;
+	padding: 0 10px 0px;
+    width: 68%;
+	float: right;
+    border-style: solid;
+    border-width: 2px;
+    height: 500px;
+}
+
+#notifications_main h2 {
+    padding-left: 20px;
+}
+
+#notifications_main p {
+    padding-left: 20px;
+}
+
+.notification_info {
+    float: left;
+    width: 60%;
+    height: 50%;
+    margin-top: 20px;
+}
+
+.participating {
+    float: left;
+    border-style: solid;
+    border-width: 2px;
+    width: 30%;
+    height: 50%;
+    overflow: scroll;
+    overflow-x: hidden;
+    margin: 20px;
+    border-radius: 5px;
+}
+
+#participating_members {
+    list-style-type: none;
+}
+
+#participating_members li {
+    padding-bottom: 10px;
+}
+
+.date {
+    float: left;
+    width: 50%;
+    height: 15%
+}
+
+.color {
+    float: left;
+    width: 50%;
+    height: 15%;
+}
+
+#color {
+    float: left;
+    width: 30%;
+}
+
+#color_box {
+    float: left;
+    width: 40%;
+    height: 100%;
+    background-color: inherit;
+    color: #A9A9A9;
+    border-style: solid;
+    border-radius: 10px;
+    border-width: 2px;
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.response {
+    float: left;
+    width: 100%;
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+}
+
+.response h2 {
+    float: left;
+}
+
+.response button {
+    float: left;
+    margin-left: 50px;
+    width: 100px;
+    height: 35px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+#accept {
+    background-color: #84b93c;
+}
+
+#decline {
+    background-color: #e61610;
 }
 
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
