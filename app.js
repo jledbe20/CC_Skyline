@@ -2,6 +2,17 @@ const express = require('express');
 const path = require('path');
 const indexRouter = require('./routes/index.js');
 const config = require('./config.js');
+const mongoose = require('mongoose');
+
+const dbURI = 'mongodb+srv://skylineT:unccSkyline2022@cluster0.59ufx.mongodb.net/test';
+
+//mongoose.connect('mongodb://localhost:27017/skyliners');
+mongoose.connect(dbURI, {useNewUrlParser:true, useUnifiedTopology:true} )
+.then((result) => app.listen(config.dbPort)) //db listens for requests after connections is complete
+.catch((err)=> console.log(err) );
+
+
+
 
 var app = express();
 
@@ -14,3 +25,4 @@ app.use('/', indexRouter);
 
 app.listen(config.listenPort);
 console.log("Launching! Now listening on port", config.listenPort);
+console.log("Database port is", config.dbPort);
