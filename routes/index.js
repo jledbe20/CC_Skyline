@@ -4,6 +4,14 @@ const { appendFile } = require('fs');
 let router = Express.Router();
 const calendarRouter = require('./calendar.js');
 
+router.get('/notifications', async function (req, res) {
+	res.render('notifications');
+});
+
+router.get('/directory', async function (req, res) {
+	res.render('directory');
+});
+
 router.get('/login', async function (req, res) {
 	res.render('login');
 });
