@@ -22,7 +22,7 @@
             </ul>
             <p>To see more information about what requests are likely to be rejected, please visit the FAQ page. This will also give you more information about the lighting of the Charlotte skyline and why events are chosen. </p>
 
-            <form>
+            <form action="/request" method='POST'>
                 <h2>Your Info</h2>
                 <label for='name'>Name:</label>
                     <input type='text' id='name' name='name'>
@@ -55,11 +55,6 @@
                 <label>Color(s)</label>
                     <input type='color' id='hex1' name='hex1'>
                 <br>
-                <a>+ Add another color</a>
-                <p>Please attach any images that are needed or may be helpful:</p>
-                <label for='file1'>File:</label>
-                <!--TODO: Change this to an image upload-->
-                <input type='text' id='file1' name='file1'>
 
                 <br>
                 <input type='submit' value='Submit'>
