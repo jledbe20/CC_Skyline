@@ -1,44 +1,41 @@
 const mongoose = require("mongoose");
 
-const Schema = mongoose.Schema;
-
-const submitterInfo = new mongoose.Schema({
-    submitterID = new Schema.type.ObjectId,
-    subName:  {type: String, required: true},
-    phone:  {type: String, required: true},
-    email:  {type: String, required: true},
+const submitterSchema = new mongoose.Schema({
+   // submitterID = new Schema.type.ObjectId,
+    subName: {type: String, required:true},
+    subPhone: {type: String, required:true},
+    subEmail: {type: String, required:true},
 });
 
-
-let requestSchema = new Schema({
-    requestID = new Schema.Types.ObjectId,
-    obj:submitterInfo,
-    ccApprove: {type: ObjectId, default: false},
-
-    requestName:  {type: String, required: true},
-
-    requestDate:  {type: Date, required: true},
-
-    requestDescription:  {type: String, required: true},
-
-    requestColorHex:{type:String, required: true },
-
+const eventDate = new mongoose.Schema({
     startDate: {type: Date, required: true},
-    
+
     startTime: {type: Date, required: true},
-    
+
     endDate: {type: Date, required: true},
-    
+
     endTime: {type: Date, required: true},
+
+});
+
+const requestSchema = new mongoose.Schema({
+    subContact : submitterSchema,
+
+    requestName: {type: String, required: true},
+
+    requestDescription: {type: String, required: true},
+
+    requestColorHex: {type: String, required: true},
+
+    requestDates: eventDate,
+
+    recurringEvent: Boolean,
     
-    recurringEvent: {type: Boolean},
-    
-    approvalRejectionComments: {type: String}
+    approvalRejectionComments:{type:String, required: true },
 
+}, {collection: "Request Information"});
 
-}, { collection: 'requestForm'});
-
-module.export = mongoose.model("requests", requestSchema);
+module.exports = mongoose.model("requests", requestSchema);
 
 //insert into the server.js file
 const request = require("./models/requestForm")

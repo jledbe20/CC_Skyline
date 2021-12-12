@@ -49,7 +49,7 @@ router.get('/', async function (req, res) {
 });
 
 router.get('/:month/:year', async function (req, res){
-    month = createMonthByYear(req.params.month, req.params.year);
+    let month = createMonthByYear(req.params.month, req.params.year);
 	res.render('calendar', {month:month, 
         yearNum:parseInt(req.params.year), 
         monthNum:parseInt(req.params.month)});
