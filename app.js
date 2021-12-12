@@ -2,6 +2,9 @@ const express = require('express');
 const path = require('path');
 const indexRouter = require('./routes/index.js');
 const config = require('./config.js');
+var app = express();
+
+//sets up references for mongodb
 const mongoose = require('mongoose');
 const User = require("./models/user");
 const Request = require("./models/requestForm");
@@ -9,6 +12,14 @@ const Notifications = require("./models/notifications");
 
 mongoose.connect("mongodb://localhost/SkylineTest");
 
+User.find({ }, function (err, docs) {
+    if (err){
+        console.log(err);
+    }
+    else{
+        console.log("Returns users collections: ", docs);
+    }
+});
 var app = express();
 
 run();
@@ -44,29 +55,14 @@ try{
     });
     console.log(request);
 
-    const user = await User.create({ 
-        name:{
-        firstName:"pomu RPR", 
-        lastName:"pmus"
-        },
-        email:"pomu@gmail.com",
-        phone:"706-444-2241", 
-        password:"great gatsby",
-        company: "Bank of America",
-        department: "Banking",
-    
-        propertyInformation:{
-            pName: "Bank building of parksStreet",
-            pStreet: "234 walks street.",
-            pPhone: "332-333-2222",
-            pUnit: "33",
-            pCity: "New York City",
-            pState: "North Carolina",
-            pZipC: "22332",
-            pLightCap: "This building is still under construction. "
-        
-        }
-        });
+Request.find({ }, function (err, docs) {
+    if (err){
+        console.log(err);
+    }
+    else{
+        console.log("Returns request collection: ", docs);
+    }
+});
         console.log(user); 
 }
 catch(e){

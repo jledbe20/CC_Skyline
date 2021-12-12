@@ -27,6 +27,8 @@ const notificationSchema = new mongoose.Schema({
 
     recurringEvent: Boolean, 
 
+    //made approvalRejectionComments not required because I can't make it true through the 
+    //request form because its suppose to be affected by the System Admin.  
     approvalRejectionComments:{type:String, required: true },
 
     participatingParties:[mongoose.Schema.Types.ObjectId],
