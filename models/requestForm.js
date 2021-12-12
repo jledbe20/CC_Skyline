@@ -40,7 +40,7 @@ module.exports = mongoose.model("requests", requestSchema);
 //insert into the server.js file
 const request = require("./models/requestForm")
 
-
+/*
 // Class for UserDB
 class RequestFormDB{
   
@@ -64,4 +64,4 @@ class RequestFormDB{
             
         })
     }
-  }
+  }*/
