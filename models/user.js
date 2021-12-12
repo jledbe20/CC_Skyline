@@ -8,6 +8,8 @@ department: return a type of industry which this account is associated with, if 
     [healthcare, real estate, hospitality, .... etc. ]
 */
 const mongoose = require("mongoose");
+const passportLocalMongoose = require('passport-local-mongoose');
+require('dotenv').config();
 
 const userName = new mongoose.Schema({
     firstName: {type: String, required: true},
@@ -29,22 +31,8 @@ const propertyInfo = new mongoose.Schema({
 });
 
 const userSchema = new mongoose.Schema({
-   
-    name: userName,
-
-    email: {type: String, required: true},
-    
-    phone: {type: String, required: true},
-    
-    password: {type: String, required: true},
-
-    title: String, 
-    
-    company: {type: String, required: true},
-
-let userSchema = new Schema({
     // sets the default mongo _id for each new users, pID 
-    _id: new Schema.Types.ObjectId,
+    _id: new mongoose.Schema.Types.ObjectId,
     name: {
         firstName: {type: String, required: true},
         lastName: {type: String, required: true}
@@ -70,15 +58,12 @@ let userSchema = new Schema({
         type: {type: String, required: true} // return which company this person orignates from 
     },
 
-    propertyInformation: propertyInform,
-
     // batch setting choices
     // Weekly, every two weeks, once a month, daily, none, or number of days.
     batchSetting:{type: String},
 
     // department return a type of industry which this account is associated with, if available.
     // healthcare, real estate, hospitality, .... etc.   
-    batchSetting:String,
     
     propertyInformation:propertyInfo,
     department:{type: String, required: true}
@@ -86,8 +71,6 @@ let userSchema = new Schema({
 }, {collection: "CCID_USERS"}
 
 );
-
-module.exports = mongoose.model("users", userSchema);
 
 /*
 files implemented using 
@@ -146,4 +129,9 @@ class UserDB{
   }
 module.exports = mongoose.model("Users", userSchema);
   }*/
+
+
+// Setting up the passport plugin
+userSchema.plugin(passportLocalMongoose);
+
 module.exports = mongoose.model("User", userSchema);

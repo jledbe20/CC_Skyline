@@ -7,10 +7,8 @@ var app = express();
 //sets up references for mongodb
 const mongoose = require('mongoose');
 var expressLayouts = require('express-ejs-layouts');
-const app = express();
 const passport = require('passport');
 const session = require('express-session');
-const UserDetails = require('./userDetails');
 const passportRouter = require('./routes/router.js');
 const User = require("./models/user");
 const Request = require("./models/requestForm");
@@ -110,9 +108,9 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 
-passport.use(UserDetails.createStrategy());
-passport.serializeUser(UserDetails.serializeUser());
-passport.deserializeUser(UserDetails.deserializeUser());
+passport.use(User.createStrategy());
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 app.use(indexRouter);
 app.use(passportRouter);
