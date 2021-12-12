@@ -20,6 +20,39 @@ User.find({ }, function (err, docs) {
         console.log("Returns users collections: ", docs);
     }
 });
+var app = express();
+
+run();
+
+async function run() {
+
+try{
+    //demonstrates how to fill in the request and user schema
+    const request = await Request.create({
+        subContact:{
+            subName: "mark",
+            subPhone: "444-333-2231",
+            subEmail:"wilkisons@gmail.com",
+        },
+
+        requestDates:{
+            startDate: "10/11/2012",
+            startTime: "10/22/2023",
+            endDate: "10/11/2012",
+            endTime: "10/11/2012",
+
+        },
+
+        requestName: "Halloween",
+
+        requestDescription: "It's to help celebrate Hallow's Eve",
+
+        requestColorHex: "purple, murasaki",
+
+        recurringEvent: false,
+
+        approvalRejectionComments: "I don't think this holidays is approriate for our orgnization.",
+    });
     console.log(request);
 
 Request.find({ }, function (err, docs) {
