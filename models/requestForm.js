@@ -42,3 +42,29 @@ module.export = mongoose.model("requests", requestSchema);
 
 //insert into the server.js file
 const request = require("./models/requestForm")
+
+
+// Class for UserDB
+class RequestFormDB{
+  
+    // Check to determine if the submitter already exists in the submitter table
+    static async submitterExist(email){
+        return new Promise((resolve, reject) => {
+
+        })
+    }
+
+    // Add a new submitter to the submitter database
+    static async addSubmitter(submitter){
+        return new Promise((resolve, reject) => {
+
+        })
+    }
+
+    // Add a new request to the request database
+    static async addRequest(request){
+        return new Promise((resolve, reject) => {
+            
+        })
+    }
+  }
