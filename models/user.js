@@ -19,7 +19,8 @@ const propertyInfo = new mongoose.Schema({
         pName:{type: String, required: true},
         pStreet: {type: String, required: true},
         pPhone: {type: String, required: true},
-        pUnit: {type: String, required: true},
+        //made pUnit not required for encase the building doesn't have a unit number
+        pUnit: {type: String},
         pCity:{type: String,  default: "Charlotte"},
         pState: {type: String,  default: "North Carolina"},
         pZipC: {type: String, required: true},
@@ -112,4 +113,4 @@ class UserDB{
   
     // 
   }
-module.exports = mongoose.model("User", userSchema);
+module.exports = mongoose.model("Users", userSchema);

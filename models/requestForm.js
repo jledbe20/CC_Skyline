@@ -37,10 +37,10 @@ const requestSchema = new mongoose.Schema({
 
 module.exports = mongoose.model("requests", requestSchema);
 
-//insert into the server.js file
-const request = require("./models/requestForm")
-
-
+//I deleted the code above because its wasn't necessary for it to be in the model folder
+//And I multi commented out the classes that Charlotte put in because I was having issues with "module not found"
+//and I just want to submit my code for review, I'll uncomment the classes when I have a chance to understand what's causing the issue. 
+/*
 // Class for UserDB
 class RequestFormDB{
   
