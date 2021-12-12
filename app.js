@@ -16,7 +16,7 @@ run();
 async function run() {
 
 try{
-    //demostrates how to fill in the request and user schema
+    //demonstrates how to fill in the request and user schema
     const request = await Request.create({
         subContact:{
             subName: "mark",
@@ -34,13 +34,13 @@ try{
 
         requestName: "Halloween",
 
-        requestDescription: " Its to help celebrate Hallos eve",
+        requestDescription: "It's to help celebrate Hallow's Eve",
 
         requestColorHex: "purple, murasaki",
 
         recurringEvent: false,
 
-        approvalRejectionComments: " I don't think this holidays is approriate for our orgnization.",
+        approvalRejectionComments: "I don't think this holidays is approriate for our orgnization.",
     });
     console.log(request);
 
