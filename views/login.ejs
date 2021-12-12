@@ -1,32 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <title>Charlotte Skyline Lighting</title>
-        <link rel="stylesheet" href="/assets/stylesheets/default.css">
-    </head>
+<head>
+  <title>Charlotte Skyline Lighting</title>
+  <link rel="stylesheet" href="/assets/stylesheets/default.css">
+</head>
 
-    <body>
-        <%- include ('partials/header'); -%>
-        
-        <main id="public_main">
-          
-          <form id="login_form" action="/login" method="POST">
-            <br>
-            <label for='username'>Username:</label>
-            <input type='text' id='name' name='name' placeholder="Enter your username" required>
-            <br>
-            <label for='password'>Password:</label>
-            <input type='password' id='password' name='password' placeholder="Enter your password" required>
-            <br>
-            <input type="checkbox" id="saveInfo" name="saveInfo">
-            <label id="smaller_font" for="saveInfo">Remember me on this device</label><br>
-            <input type="submit" value="Login">
-          </form>
+<body>
+  <%- include ('partials/header'); -%>
 
-        </main>
+    <main id="public_main">
+
+      <form id="login_form" action="/login" method="POST">
+        <br>
+        <div class="mb-2">
+          <label for="username" class="form-label">Username</label>
+          <input type="text" class="form-control" name="username" placeholder="Username" required>
+        </div>
+        <div class="mb-2">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" class="form-control" name="password" placeholder="Password" required>
+        </div>
+        <br>
+        <input type="submit" value="Login">
+      </form>
+
+      <input type="checkbox" id="saveInfo" name="saveInfo">
+      <label id="smaller_font" for="saveInfo">Remember me on this device</label><br>
+    </main>
 
     <%- include ('partials/footer'); -%>
-    </body>
+</body>
 
-    </html>
+</html>

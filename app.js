@@ -53,8 +53,8 @@ passport.use(UserDetails.createStrategy());
 passport.serializeUser(UserDetails.serializeUser());
 passport.deserializeUser(UserDetails.deserializeUser());
 
+app.use(indexRouter);
 app.use(passportRouter);
-
 // manually instantiate user in DB
 // UserDetails.register({username:'Jon', active: false}, 'test');
 // require('./path/to/passport/config/file')(passport);
