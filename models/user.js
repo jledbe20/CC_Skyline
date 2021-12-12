@@ -11,13 +11,26 @@ const mongoose = require("mongoose");
 const passportLocalMongoose = require('passport-local-mongoose');
 require('dotenv').config();
 
+const MONGODB_URI = "mongodb+srv://skylineT:unccSkyline2022@cluster0.59ufx.mongodb.net/"
+// Connecting Mongoose
+mongoose.connect(MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+
+// Setting up the login aspect of the schema
+const UserLogin = new mongoose.Schema({
+  username: String,
+  password: String,
+});
+
 const userName = new mongoose.Schema({
     firstName: {type: String, required: true},
     lastName: {type: String, required: true},
 });
 
 const propertyInfo = new mongoose.Schema({
-       // pID = propertyInfo.objectID,
+        // pID = propertyInfo.objectID,
         pName:{type: String, required: true},
         pStreet: {type: String, required: true},
         pPhone: {type: String, required: true},
@@ -34,20 +47,20 @@ const userSchema = new mongoose.Schema({
     // sets the default mongo _id for each new users, pID 
     _id: new mongoose.Schema.Types.ObjectId,
     name: {
-        firstName: {type: String, required: true},
-        lastName: {type: String, required: true}
+        firstName: {type: String, required: false},
+        lastName: {type: String, required: false}
     },
 
     email: {
-        type: {type: String, required: true}
+        type: {type: String, required: false}
     },
 
     phone: {
-        type: {type: String, required: true}
+        type: {type: String, required: false}
     },
 
     password: {
-        type: {type: String, required: true}
+        type: {type: String, required: false}
     },
 
     title:{
@@ -55,7 +68,7 @@ const userSchema = new mongoose.Schema({
     },
 
     company:{
-        type: {type: String, required: true} // return which company this person orignates from 
+        type: {type: String, required: false} // return which company this person orignates from 
     },
 
     // batch setting choices
@@ -66,7 +79,7 @@ const userSchema = new mongoose.Schema({
     // healthcare, real estate, hospitality, .... etc.   
     
     propertyInformation:propertyInfo,
-    department:{type: String, required: true}
+    department:{type: String, required: false}
 
 }, {collection: "CCID_USERS"}
 

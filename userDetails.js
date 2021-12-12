@@ -9,7 +9,7 @@ mongoose.connect(MONGODB_URI, {
   useUnifiedTopology: true,
 });
 
-// Setting up the schema
+// Setting up the login aspect of the schema
 const User = new mongoose.Schema({
   username: String,
   password: String,

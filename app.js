@@ -22,14 +22,14 @@ mongoose.connect(MONGODB_URI, {
     useNewUrlParser: true, 
     useUnifiedTopology: true} )
 .then((result) => app.listen(config.dbPort)) // db listens for requests after connections is complete
-.catch((err)=> console.log(err) );
+// .catch((err)=> console.log(err) );
 
 User.find({ }, function (err, docs) {
     if (err){
-        console.log(err);
+        // console.log(err);
     }
     else{
-        console.log("Returns users collections: ", docs);
+        // console.log("Returns users collections: ", docs);
     }
 });
 
@@ -62,24 +62,25 @@ try{
 
         recurringEvent: false,
 
-        approvalRejectionComments: "I don't think this holidays is approriate for our orgnization.",
+        approvalRejectionComments: "I don't think this holidays is approriate for our organization.",
     });
-    console.log(request);
+    // console.log(request);
 
 Request.find({ }, function (err, docs) {
     if (err){
-        console.log(err);
+        // console.log(err);
     }
     else{
-        console.log("Returns request collection: ", docs);
+        // console.log("Returns request collection: ", docs);
     }
 });
-        console.log(user); 
+        // console.log(user); 
 }
 catch(e){
-    console.log(e.message);
+    // console.log(e.message);
 };
 };
+
 app.set('view engine', 'ejs');
 // The weird path shenanigans are to make it work on any system
 // Without this, you may get weird bugs on non-windows OSes
@@ -107,16 +108,15 @@ app.use(express.urlencoded({ extended: false }));
 app.use(passport.initialize());
 app.use(passport.session());
 
-
 passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 app.use(indexRouter);
 app.use(passportRouter);
+
 // manually instantiate user in DB
-// UserDetails.register({username:'Jon', active: false}, 'test');
-// require('./path/to/passport/config/file')(passport);
+// User.register({username:'Jon', active: false}, 'test');
 
 app.listen(config.listenPort);
 console.log("Launching! Now listening on port", config.listenPort);
