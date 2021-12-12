@@ -1,41 +1,38 @@
-const { ObjectId } = require("bson");
 const mongoose = require("mongoose");
 
-const Schema = mongoose.Schema;
+//participating parties list, do we want to query each notificationSchema _ID and the 
+//participatingParties user: _iD collected and returned inside the calander event card. 
 
-
-let notificationSchema = new Schema({
-    notificationID = new Schema.Types.ObjectId,
-    requestID: {type: ObjectId, required: true},
-    
-    requestName:  {type: String, required: true},
-
-    requestDate:  {type: Date, required: true},
-
-    requestDescription:  {type: String, required: true},
-
-    requestColorHex:{type:String, required: true },
-
+const eventDate = new mongoose.Schema({
     startDate: {type: Date, required: true},
-    
+
     startTime: {type: Date, required: true},
-    
+
     endDate: {type: Date, required: true},
-    
+
     endTime: {type: Date, required: true},
-    
-    recurringEvent: {type: Boolean},
-    
-    approvalRejectionComments: {type: String},
 
-    participatingParties:[
-        {
-            stakeholderID:
-            {
-                type: ObjectId
-            }
-        }
-    ]
+});
 
+const notificationSchema = new mongoose.Schema({
+    requestIDRef: {type:mongoose.Schema.Types.ObjectId},
 
-}, { collection: 'notifications'});
+    requestName: {type: String, required: true}, 
+
+    requestDescription: {type: String, required: true},
+
+    requestColorHex: {type: String, required: true},
+
+    requestDates: eventDate,
+
+    recurringEvent: Boolean, 
+
+    //made approvalRejectionComments not required because I can't make it true through the 
+    //request form because its suppose to be affected by the System Admin.  
+    approvalRejectionComments:{type:String, required: true },
+
+    participatingParties:[mongoose.Schema.Types.ObjectId],
+
+}, {collection: "Event_Notifications" });
+
+module.exports = mongoose.model("notifications",notificationSchema);
