@@ -53,10 +53,6 @@ const userSchema = new mongoose.Schema({
 
 module.exports = mongoose.model("users", userSchema);
 
-//insert into the server.js file
-const user = require("./models/user");
-
-
 /*
 files implemented using 
 https://kb.objectrocket.com/mongo-db/simple-mongoose-and-node-js-example-1007
