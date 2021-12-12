@@ -63,7 +63,7 @@ https://kb.objectrocket.com/mongo-db/simple-mongoose-and-node-js-example-1007
 https://youtu.be/5QEwqX5U_2M
 */
 
-
+/*
 // Class for UserDB
 class UserDB{
   
@@ -111,5 +111,5 @@ class UserDB{
     }
   
     // 
-  }
+  }*/
 module.exports = mongoose.model("User", userSchema);
