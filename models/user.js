@@ -13,10 +13,10 @@ require('dotenv').config();
 
 const MONGODB_URI = "mongodb+srv://skylineT:unccSkyline2022@cluster0.59ufx.mongodb.net/"
 // Connecting Mongoose
-mongoose.connect(MONGODB_URI, {
+/*mongoose.connect(MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-});
+});*/
 
 // Setting up the login aspect of the schema
 const UserLogin = new mongoose.Schema({
@@ -45,7 +45,7 @@ const propertyInfo = new mongoose.Schema({
 
 const userSchema = new mongoose.Schema({
     // sets the default mongo _id for each new users, pID 
-    _id: new mongoose.Schema.Types.ObjectId,
+    _id: mongoose.Schema.Types.ObjectId,
     name: {
         firstName: {type: String, required: false},
         lastName: {type: String, required: false}

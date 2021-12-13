@@ -15,7 +15,7 @@ const eventDate = new mongoose.Schema({
 });
 
 const notificationSchema = new mongoose.Schema({
-    requestIDRef: {type:mongoose.Schema.Types.ObjectId},
+    requestIDRef: {type: mongoose.Schema.Types.ObjectId},
 
     requestName: {type: String, required: true}, 
 

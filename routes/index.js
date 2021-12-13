@@ -6,7 +6,7 @@ const calendarRouter = require('./calendar.js');
 
 const mongoose = require('mongoose');
 const Request = require("../models/requestForm");
-mongoose.connect("mongodb://localhost/SkylineTest");
+//mongoose.connect("mongodb://localhost/SkylineTest");
 
 var bodyParser = require("body-parser");
 router.use(bodyParser.urlencoded({ extended: false }));
