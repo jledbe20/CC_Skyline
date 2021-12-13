@@ -31,7 +31,7 @@ router.post(
     successRedirect: '/secret',
   }),
   (req, res) => {
-    console.log(req.user);
+    // console.log(req.user);
   }
 );
 

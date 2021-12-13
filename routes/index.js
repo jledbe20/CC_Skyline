@@ -79,7 +79,7 @@ router.post("/requestForm", async function (req, res) {
 		approvalRejectionComments: true
 
 	});
-	console.log(requests);
+	// console.log(requests);
 	res.redirect("/views/index.ejs");
 	res.status(201).end();
 
@@ -129,7 +129,7 @@ router.post("/requestForm", async function (req, res) {
 		approvalRejectionComments: true
 
 	});
-	console.log(requests);
+	// console.log(requests);
 	res.redirect("/views/index.ejs");
 	res.status(201).end();
 
