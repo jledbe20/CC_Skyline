@@ -514,6 +514,35 @@ aside {
     background-color: #e61610;
 }
 
+/*calendar page */
+.calendar{
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+    border: 1px solid black;
+    margin-bottom: 30px;
+}
+
+.calendar th {
+    text-align: center;
+    width: 150px;
+    height: 50px;
+    background-color: #284B63;
+    border-style: none;
+    color: white;
+    border: 1px solid black;
+}
+
+.calendar td {
+    height: 150px;
+    width: 150px;
+    border: 1px solid black;
+}
+
+.date {
+    background-color: violet;
+    width: 100%;
+}
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 What page(s) is this for?
 */
