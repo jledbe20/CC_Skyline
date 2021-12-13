@@ -19,7 +19,7 @@ const propertyInfo = new mongoose.Schema({
         pName:{type: String, required: true},
         pStreet: {type: String, required: true},
         pPhone: {type: String, required: true},
-        pUnit: {type: String, required: true},
+        pUnit: {type: String},
         pCity:{type: String,  default: "Charlotte"},
         pState: {type: String,  default: "North Carolina"},
         pZipC: {type: String, required: true},
@@ -53,8 +53,6 @@ const userSchema = new mongoose.Schema({
 
 module.exports = mongoose.model("users", userSchema);
 
-//insert into the server.js file
-const user = require("./models/user");
 
 
 /*

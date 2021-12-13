@@ -11,68 +11,24 @@ mongoose.connect("mongodb://localhost/SkylineTest");
 
 var app = express();
 
-run();
+User.find({}, function (err, docs) {
+    if (err){
+        console.log(err);
+    }
+    else{
+        console.log("Returns users collections: ", docs);
+    }
+});
 
-async function run() {
+Request.find({}, function (err, docs) {
+    if (err){
+        console.log(err);
+    }
+    else{
+        console.log("Returns Request collections: ", docs);
+    }
+});
 
-try{
-    //demostrates how to fill in the request and user schema
-    const request = await Request.create({
-        subContact:{
-            subName: "mark",
-            subPhone: "444-333-2231",
-            subEmail:"wilkisons@gmail.com",
-        },
-
-        requestDates:{
-            startDate: "10/11/2012",
-            startTime: "10/22/2023",
-            endDate: "10/11/2012",
-            endTime: "10/11/2012",
-
-        },
-
-        requestName: "Halloween",
-
-        requestDescription: " Its to help celebrate Hallos eve",
-
-        requestColorHex: "purple, murasaki",
-
-        recurringEvent: false,
-
-        approvalRejectionComments: " I don't think this holidays is approriate for our orgnization.",
-    });
-    console.log(request);
-
-    const user = await User.create({ 
-        name:{
-        firstName:"pomu RPR", 
-        lastName:"pmus"
-        },
-        email:"pomu@gmail.com",
-        phone:"706-444-2241", 
-        password:"great gatsby",
-        company: "Bank of America",
-        department: "Banking",
-    
-        propertyInformation:{
-            pName: "Bank building of parksStreet",
-            pStreet: "234 walks street.",
-            pPhone: "332-333-2222",
-            pUnit: "33",
-            pCity: "New York City",
-            pState: "North Carolina",
-            pZipC: "22332",
-            pLightCap: "This building is still under construction. "
-        
-        }
-        });
-        console.log(user); 
-}
-catch(e){
-    console.log(e.message);
-};
-};
 
 app.set('view engine', 'ejs');
 // The weird path shenanigans are to make it work on any system

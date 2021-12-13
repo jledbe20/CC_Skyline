@@ -31,14 +31,12 @@ const requestSchema = new mongoose.Schema({
 
     recurringEvent: Boolean,
     
-    approvalRejectionComments:{type:String, required: true },
+    approvalRejectionComments:{type:String },
 
 }, {collection: "Request Information"});
 
 module.exports = mongoose.model("requests", requestSchema);
 
-//insert into the server.js file
-const request = require("./models/requestForm")
 
 
 // Class for UserDB
