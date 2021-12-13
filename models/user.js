@@ -34,7 +34,7 @@ const propertyInfo = new mongoose.Schema({
         pName:{type: String, required: true},
         pStreet: {type: String, required: true},
         pPhone: {type: String, required: true},
-        //made pUnit not required for encase the building doesn't have a unit number
+        //some buildings might not have unts number
         pUnit: {type: String},
         pCity:{type: String,  default: "Charlotte"},
         pState: {type: String,  default: "North Carolina"},
@@ -84,6 +84,8 @@ const userSchema = new mongoose.Schema({
 }, {collection: "CCID_USERS"}
 
 );
+
+module.exports = mongoose.model("users", userSchema);
 
 /*
 files implemented using 

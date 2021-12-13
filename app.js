@@ -33,53 +33,24 @@ User.find({ }, function (err, docs) {
     }
 });
 
-run();
-
-async function run() {
-
-try{
-    //demonstrates how to fill in the request and user schema
-    const request = await Request.create({
-        subContact:{
-            subName: "mark",
-            subPhone: "444-333-2231",
-            subEmail:"wilkisons@gmail.com",
-        },
-
-        requestDates:{
-            startDate: "10/11/2012",
-            startTime: "10/22/2023",
-            endDate: "10/11/2012",
-            endTime: "10/11/2012",
-
-        },
-
-        requestName: "Halloween",
-
-        requestDescription: "It's to help celebrate Hallow's Eve",
-
-        requestColorHex: "purple, murasaki",
-
-        recurringEvent: false,
-
-        approvalRejectionComments: "I don't think this holidays is approriate for our organization.",
-    });
-    // console.log(request);
-
-Request.find({ }, function (err, docs) {
+User.find({}, function (err, docs) {
     if (err){
-        // console.log(err);
+        console.log(err);
     }
     else{
-        // console.log("Returns request collection: ", docs);
+        console.log("Returns users collections: ", docs);
     }
 });
-        // console.log(user); 
-}
-catch(e){
-    // console.log(e.message);
-};
-};
+
+Request.find({}, function (err, docs) {
+    if (err){
+        console.log(err);
+    }
+    else{
+        console.log("Returns Request collections: ", docs);
+    }
+});
+
 
 app.set('view engine', 'ejs');
 // The weird path shenanigans are to make it work on any system
