@@ -89,7 +89,7 @@ router.get('/*', async function(req, res){
 	res.render('index');
 });
 
-router.post("/requestForm", async function (req, res) {
+router.post("/request", async function (req, res) {
 
 	//checkbox check for recurring
 	var boxOutput = false;
@@ -109,26 +109,29 @@ router.post("/requestForm", async function (req, res) {
 	//https://school.geekwall.in/p/SJ_Tkqbi4
 	//https://www.tutorialspoint.com/nodejs/nodejs_response_object.htm
 	//https://school.geekwall.in/p/SJ_Tkqbi4
+	try{
+		const requests = await Request.create({
+			subContact: {
+				subName: req.body.name,
+				subPhone: req.body.phone,
+				subEmail: req.body.email
+			},
+			requestDate: {
+				startDate: req.body.startDate,
+				startTime: req.body.startTime,
+				endTime: req.body.endTime,
+				endDate: req.body.endDate
+			},
+			requestName: req.body.eventName,
+			requestDescription: req.body.description,
+			requestColorHex: req.body.hex1,
+			recurringEvent: boxOutput,
+			approvalRejectionComments: true
 
-	const requests = await Request.create({
-		subContact: {
-			subName: req.body.name,
-			subPhone: req.body.phone,
-			subEmail: req.body.email
-		},
-		requestDate: {
-			startDate: req.body.startDate,
-			startTime: req.body.startTime,
-			endTime: req.body.endTime,
-			endDate: req.body.endDate
-		},
-		requestName: req.body.eventName,
-		requestDescription: req.body.description,
-		requestColorHex: req.body.hex1,
-		recurringEvent: boxOutput,
-		approvalRejectionComments: true
-
-	});
+		});
+	} catch (e){
+		return res.redirect("/request");
+	}
 	// console.log(requests);
 	res.redirect("/views/index.ejs");
 	res.status(201).end();
