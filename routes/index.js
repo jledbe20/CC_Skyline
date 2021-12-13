@@ -39,52 +39,6 @@ router.get('/request', async function(req, res){
 	res.render('request');
 });
 
-router.post("/requestForm", async function (req, res) {
-
-	//checkbox check for recurring
-	var boxOutput = false;
-	var checkoutMessage;
-
-	let checkedValue = req.body["isRecurring"];
-	if (checkedValue) {
-		checkoutMessage += 'the box WAS checked';
-		boxOutput = true;
-	} else {
-		checkoutMessage += 'the box was NOT checked';
-	}
-	//need to add a validator (theses might help) https://mongoosejs.com/docs/validation.html
-	//https://flaviocopes.com/express-validate-input/ 
-	//http://expressjs.com/en/4x/api.html#res.json
-	//async information https://javascript.info/async
-	//https://school.geekwall.in/p/SJ_Tkqbi4
-	//https://www.tutorialspoint.com/nodejs/nodejs_response_object.htm
-	//https://school.geekwall.in/p/SJ_Tkqbi4
-
-	const requests = await Request.create({
-		subContact: {
-			subName: req.body.name,
-			subPhone: req.body.phone,
-			subEmail: req.body.email
-		},
-		requestDate: {
-			startDate: req.body.startDate,
-			startTime: req.body.startTime,
-			endTime: req.body.endTime,
-			endDate: req.body.endDate
-		},
-		requestName: req.body.eventName,
-		requestDescription: req.body.description,
-		requestColorHex: req.body.hex1,
-		recurringEvent: boxOutput,
-		approvalRejectionComments: true
-
-	});
-	// console.log(requests);
-	res.redirect("/views/index.ejs");
-	res.status(201).end();
-
-});
-
 router.get('/*', async function(req, res){
 	res.render('index');
 });
@@ -109,17 +63,19 @@ router.post("/request", async function (req, res) {
 	//https://school.geekwall.in/p/SJ_Tkqbi4
 	//https://www.tutorialspoint.com/nodejs/nodejs_response_object.htm
 	//https://school.geekwall.in/p/SJ_Tkqbi4
+	let request;
 	try{
-		const requests = await Request.create({
+		request = await Request.create({
 			subContact: {
 				subName: req.body.name,
 				subPhone: req.body.phone,
 				subEmail: req.body.email
 			},
-			requestDate: {
+			requestDates: {
 				startDate: req.body.startDate,
-				startTime: req.body.startTime,
-				endTime: req.body.endTime,
+				// Can I apologize to God for this one?
+				startTime: new Date('1970-01-01T' + req.body.startTime),
+				endTime: new Date('1970-01-01T' + req.body.endTime),
 				endDate: req.body.endDate
 			},
 			requestName: req.body.eventName,
@@ -130,9 +86,9 @@ router.post("/request", async function (req, res) {
 
 		});
 	} catch (e){
+		console.log(e);
 		return res.redirect("/request");
 	}
-	// console.log(requests);
 	res.redirect("/views/index.ejs");
 	res.status(201).end();
 

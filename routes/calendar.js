@@ -27,7 +27,7 @@ class CalendarMonth{
     }
 
     addEvent(date, contents){
-        this.array[date-1].contents = contents;
+        this.array[date].contents = contents;
     }
 }
 
