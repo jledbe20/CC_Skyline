@@ -2,14 +2,36 @@ const express = require('express');
 const path = require('path');
 const indexRouter = require('./routes/index.js');
 const config = require('./config.js');
+var app = express();
+
+//sets up references for mongodb
 const mongoose = require('mongoose');
+var expressLayouts = require('express-ejs-layouts');
+const passport = require('passport');
+const session = require('express-session');
+const passportRouter = require('./routes/router.js');
 const User = require("./models/user");
 const Request = require("./models/requestForm");
 const Notifications = require("./models/notifications");
+require('dotenv').config();
 
-mongoose.connect("mongodb://localhost/SkylineTest");
+const MONGODB_URI = "mongodb://localhost/SkylineTest";
 
-var app = express();
+// mongoose.connect('mongodb://localhost:27017/skyliners');
+mongoose.connect(MONGODB_URI, {
+    useNewUrlParser: true, 
+    useUnifiedTopology: true} )
+.then((result) => app.listen(config.dbPort)) // db listens for requests after connections is complete
+// .catch((err)=> console.log(err) );
+
+User.find({ }, function (err, docs) {
+    if (err){
+        // console.log(err);
+    }
+    else{
+        // console.log("Returns users collections: ", docs);
+    }
+});
 
 User.find({}, function (err, docs) {
     if (err){
@@ -36,6 +58,36 @@ app.set('view engine', 'ejs');
 app.set('views', `${__dirname}/views`);
 app.use('/assets/', express.static(path.join(__dirname, 'assets')));
 app.use('/', indexRouter);
+
+// set up view engine and layout
+app.use(expressLayouts);
+app.set('layout', './layout/main');
+app.set('view engine', 'ejs');
+
+// Set up session
+app.use(
+    session({
+      secret: process.env.SECRET || 'the skyline is lit and all is well',
+      resave: false,
+      saveUninitialized: true,
+    })
+);
+
+app.use(express.urlencoded({ extended: false }));
+
+// Initialize passport
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.use(User.createStrategy());
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+app.use(indexRouter);
+app.use(passportRouter);
+
+// manually instantiate user in DB
+// User.register({username:'Jon', active: false}, 'test');
 
 app.listen(config.listenPort);
 console.log("Launching! Now listening on port", config.listenPort);

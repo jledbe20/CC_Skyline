@@ -2,13 +2,14 @@ const mongoose = require('mongoose');
 const passportLocalMongoose = require('passport-local-mongoose');
 require('dotenv').config();
 
+const MONGODB_URI = "mongodb+srv://skylineT:unccSkyline2022@cluster0.59ufx.mongodb.net/"
 // Connecting Mongoose
-mongoose.connect(process.env.MONGODB_URI, {
+mongoose.connect(MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
 
-// Setting up the schema
+// Setting up the login aspect of the schema
 const User = new mongoose.Schema({
   username: String,
   password: String,
@@ -17,4 +18,4 @@ const User = new mongoose.Schema({
 // Setting up the passport plugin
 User.plugin(passportLocalMongoose);
 
-module.exports = mongoose.model('User', User);
+//module.exports = mongoose.model('User', User);

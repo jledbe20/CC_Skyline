@@ -8,6 +8,21 @@ department: return a type of industry which this account is associated with, if 
     [healthcare, real estate, hospitality, .... etc. ]
 */
 const mongoose = require("mongoose");
+const passportLocalMongoose = require('passport-local-mongoose');
+require('dotenv').config();
+
+const MONGODB_URI = "mongodb+srv://skylineT:unccSkyline2022@cluster0.59ufx.mongodb.net/"
+// Connecting Mongoose
+mongoose.connect(MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+
+// Setting up the login aspect of the schema
+const UserLogin = new mongoose.Schema({
+  username: String,
+  password: String,
+});
 
 const userName = new mongoose.Schema({
     firstName: {type: String, required: true},
@@ -15,10 +30,11 @@ const userName = new mongoose.Schema({
 });
 
 const propertyInfo = new mongoose.Schema({
-       // pID = propertyInfo.objectID,
+        // pID = propertyInfo.objectID,
         pName:{type: String, required: true},
         pStreet: {type: String, required: true},
         pPhone: {type: String, required: true},
+        //some buildings might not have unts number
         pUnit: {type: String},
         pCity:{type: String,  default: "Charlotte"},
         pState: {type: String,  default: "North Carolina"},
@@ -28,24 +44,42 @@ const propertyInfo = new mongoose.Schema({
 });
 
 const userSchema = new mongoose.Schema({
-   
-    name: userName,
+    // sets the default mongo _id for each new users, pID 
+    _id: new mongoose.Schema.Types.ObjectId,
+    name: {
+        firstName: {type: String, required: false},
+        lastName: {type: String, required: false}
+    },
 
-    email: {type: String, required: true},
-    
-    phone: {type: String, required: true},
-    
-    password: {type: String, required: true},
+    email: {
+        type: {type: String, required: false}
+    },
 
-    title: String, 
-    
-    company: {type: String, required: true},
+    phone: {
+        type: {type: String, required: false}
+    },
 
-    batchSetting:String,
+    password: {
+        type: {type: String, required: false}
+    },
+
+    title:{
+        type:  String // returns job title if available [Stakeholder, System Adminstrator, Property Managers] 
+    },
+
+    company:{
+        type: {type: String, required: false} // return which company this person orignates from 
+    },
+
+    // batch setting choices
+    // Weekly, every two weeks, once a month, daily, none, or number of days.
+    batchSetting:{type: String},
+
+    // department return a type of industry which this account is associated with, if available.
+    // healthcare, real estate, hospitality, .... etc.   
     
     propertyInformation:propertyInfo,
-
-    department:{type: String, required: true}
+    department:{type: String, required: false}
 
 }, {collection: "CCID_USERS"}
 
@@ -53,15 +87,13 @@ const userSchema = new mongoose.Schema({
 
 module.exports = mongoose.model("users", userSchema);
 
-
-
 /*
 files implemented using 
 https://kb.objectrocket.com/mongo-db/simple-mongoose-and-node-js-example-1007
 https://youtu.be/5QEwqX5U_2M
 */
 
-
+/*
 // Class for UserDB
 class UserDB{
   
@@ -110,4 +142,11 @@ class UserDB{
   
     // 
   }
+module.exports = mongoose.model("Users", userSchema);
+  }*/
+
+
+// Setting up the passport plugin
+userSchema.plugin(passportLocalMongoose);
+
 module.exports = mongoose.model("User", userSchema);

@@ -37,8 +37,7 @@ const requestSchema = new mongoose.Schema({
 
 module.exports = mongoose.model("requests", requestSchema);
 
-
-
+/*
 // Class for UserDB
 class RequestFormDB{
   
@@ -62,4 +61,4 @@ class RequestFormDB{
             
         })
     }
-  }
+  */
