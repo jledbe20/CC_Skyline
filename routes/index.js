@@ -1,16 +1,24 @@
 const Express = require('express');
 const { appendFile } = require('fs');
 
-let router = Express.Router();
 const calendarRouter = require('./calendar.js');
 
 const mongoose = require('mongoose');
 const Request = require("../models/requestForm");
 //mongoose.connect("mongodb://localhost/SkylineTest");
 
+// Routes for passport (login middleware)
+const express = require('express');
+const router = express.Router();
+const connectEnsureLogin = require('connect-ensure-login');
+const passport = require('passport');
+
 var bodyParser = require("body-parser");
 router.use(bodyParser.urlencoded({ extended: false }));
 
+router.get('/', (req, res) => {
+	res.render('index', { title: 'Home' });
+});
 
 router.get('/notifications', async function (req, res) {
 	res.render('notifications');
@@ -35,13 +43,46 @@ router.get('/faq', async function (req, res) {
 	res.render('faq');
 });
 
-router.get('/request', async function(req, res){
+router.get('/request', async function (req, res) {
 	res.render('request');
 });
 
-router.get('/*', async function(req, res){
+router.get('/login', (req, res) => {
+	res.render('login', { title: 'Login' });
+});
+
+router.get('/private', (req, res) => {
+	res.render('private', { title: 'Logged In' });
+});
+
+router.get('/private', connectEnsureLogin.ensureLoggedIn(), (req, res) =>
+	res.render('private', { title: 'Logged In' })
+);
+
+router.get('/secret', connectEnsureLogin.ensureLoggedIn(), (req, res) =>
+	res.render('secret', { title: 'Secret Page' })
+);
+
+router.get('/logout', (req, res) => {
+	req.logout();
+	res.redirect('/');
+});
+
+router.get('/*', async function (req, res) {
 	res.render('index');
 });
+
+// POST Routes
+router.post(
+	'/login',
+	passport.authenticate('local', {
+		failureRedirect: '/login',
+		successRedirect: '/private',
+	}),
+	(req, res) => {
+		console.log(req.user);
+	}
+);
 
 router.post("/request", async function (req, res) {
 
@@ -64,7 +105,7 @@ router.post("/request", async function (req, res) {
 	//https://www.tutorialspoint.com/nodejs/nodejs_response_object.htm
 	//https://school.geekwall.in/p/SJ_Tkqbi4
 	let request;
-	try{
+	try {
 		request = await Request.create({
 			subContact: {
 				subName: req.body.name,
@@ -85,7 +126,7 @@ router.post("/request", async function (req, res) {
 			approvalRejectionComments: true
 
 		});
-	} catch (e){
+	} catch (e) {
 		console.log(e);
 		return res.redirect("/request");
 	}
@@ -93,6 +134,5 @@ router.post("/request", async function (req, res) {
 	res.status(201).end();
 
 });
-
 
 module.exports = router;

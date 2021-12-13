@@ -11,6 +11,7 @@ const passport = require('passport');
 const session = require('express-session');
 const passportRouter = require('./routes/router.js');
 const User = require("./models/user");
+const UserLogin = require("./models/userDetails");
 const Request = require("./models/requestForm");
 const Notifications = require("./models/notifications");
 require('dotenv').config();
@@ -103,9 +104,9 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 
-passport.use(User.createStrategy());
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
+passport.use(UserLogin.createStrategy());
+passport.serializeUser(UserLogin.serializeUser());
+passport.deserializeUser(UserLogin.deserializeUser());
 
 app.use(indexRouter);
 app.use(passportRouter);

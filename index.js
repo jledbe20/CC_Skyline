@@ -4,7 +4,7 @@ var expressLayouts = require('express-ejs-layouts');
 const app = express();
 const passport = require('passport');
 const session = require('express-session');
-const UserDetails = require('./userDetails');
+const UserDetails = require('./models/userDetails');
 const routes = require('./routes/router');
 require('dotenv').config();
 

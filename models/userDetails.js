@@ -10,12 +10,12 @@ const MONGODB_URI = "mongodb+srv://skylineT:unccSkyline2022@cluster0.59ufx.mongo
 });*/
 
 // Setting up the login aspect of the schema
-const User = new mongoose.Schema({
+const UserLogin = new mongoose.Schema({
   username: String,
   password: String,
 });
 
 // Setting up the passport plugin
-User.plugin(passportLocalMongoose);
+UserLogin.plugin(passportLocalMongoose);
 
-//module.exports = mongoose.model('User', User);
+module.exports = mongoose.model('UserLogin', UserLogin);
