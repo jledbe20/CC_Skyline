@@ -89,7 +89,7 @@ router.post("/request", async function (req, res) {
 		console.log(e);
 		return res.redirect("/request");
 	}
-	res.redirect("/views/index.ejs");
+	res.render("requestConfirmation.ejs");
 	res.status(201).end();
 
 });
