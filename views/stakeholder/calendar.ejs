@@ -8,13 +8,13 @@
     </head>
 
     <body>
-        <%- include ('partials/header'); -%>
+        <%- include ('../partials/header_stakeholder'); -%>
         
         <main id="public_main">
 
           <h2><%=month.name%> <%=yearNum%></h2>
 
-          <%- include ('../partials/calendar', {month:month}); -%>
+          <%- include ('partials/calendar', {month:month}); -%>
 
           <% // Make links to previous and next months.
           let nextMonth = monthNum + 1;
@@ -33,7 +33,7 @@
           <a href= <%=`/calendar/${nextMonth}/${nextYear}`%>>Next Month</a>
         </main>
 
-        <%- include ('../partials/footer'); -%>
+        <%- include ('../partials/footer_stakeholder'); -%>
     </body>
 
 </html>

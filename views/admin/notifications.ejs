@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+         <title>Charlotte Skyline Lighting</title>
+         <link rel="stylesheet" href="../assets/stylesheets/default.css">
+         <link rel="stylesheet" href="../assets/jquery-ui-1.12.1.custom/jquery-ui.min.css">
+         <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+         <script src="../assets/scripts/load_notifications.js"></script>
+    </head>
+
+    <body>
+        <%- include ('../partials/header_admin'); -%>
+        <h1 id="center_text">Notifications</h1>
+        <main id="notifications_main">
+            <div class="notification_info">
+                <h2 id="subject">Subject: </h2>
+                <h2>Event Description: </h2>
+                <p id="event_description"></p>
+            </div>
+            <div class="participating">
+                <h2>Participating:</h2>
+                <ul id="participating_members">
+                </ul>
+            </div>
+            <div class="date">
+                <h2 id="date">Date: </h2>
+            </div>
+            <div class="color">
+                <h2 id="color">Color: </h2>
+                <div id="color_box">
+                    #000000
+                </div>
+            </div>
+            <div class="response">
+                <h2>Will you be participating?</h2>
+                <button type="button" id="accept">Yes</button>
+                <button type="button" id="decline">No</button>
+            </div>
+        </main>
+        <aside>
+            <div class="notification">
+                <a href=""><h3>St. Jude Children's Research Walk Request - Stakeholder</h3></a>
+            </div>
+            <div class="notification">
+                <a href=""><h3>St. Jude Children's Research Walk Request - Stakeholder</h3></a>
+            </div>
+            <div class="notification">
+                <a href=""><h3>St. Jude Children's Research Walk Request - Stakeholder</h3></a>
+            </div>
+        </aside>
+        <%- include ('../partials/footer_admin'); -%>
+    </body>
+
+</html>
