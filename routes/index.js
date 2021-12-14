@@ -17,7 +17,7 @@ var bodyParser = require("body-parser");
 router.use(bodyParser.urlencoded({ extended: false }));
 
 router.get('/', (req, res) => {
-	res.render('index', { title: 'Home' });
+	res.render('./public/index', { title: 'Home' });
 });
 
 router.get('/notifications', async function (req, res) {
@@ -29,22 +29,22 @@ router.get('/directory', async function (req, res) {
 });
 
 router.get('/login', async function (req, res) {
-	res.render('login');
+	res.render('./public/login');
 });
 
 router.get('/contact', async function (req, res) {
-	res.render('contact');
+	res.render('./public/contact');
 });
 
 router.use('/calendar', calendarRouter);
 router.use('/calendar/*', calendarRouter);
 
 router.get('/faq', async function (req, res) {
-	res.render('faq');
+	res.render('./public/faq');
 });
 
 router.get('/request', async function (req, res) {
-	res.render('request');
+	res.render('./public/request');
 });
 
 router.get('/login', (req, res) => {
@@ -69,7 +69,7 @@ router.get('/logout', (req, res) => {
 });
 
 router.get('/*', async function (req, res) {
-	res.render('index');
+	res.render('public/index');
 });
 
 // POST Routes

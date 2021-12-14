@@ -1,0 +1,28 @@
+<table class='calendar'>
+    <tr>
+      <th>Sunday</th>
+      <th>Monday</th>
+      <th>Tuesday</th>
+      <th>Wednesday</th>
+      <th>Thursday</th>
+      <th>Friday</th>
+      <th>Saturday</th>
+    </tr>
+    <tr>
+    <!--Print blank days for days that don't exist-->
+    <%for (let i=0; i < month.array[0].day; i++){%>
+        <td></td>
+    <%}
+    for (let i=0; i < month.array.length; i++){%>
+        <!--For each real day, add a block to the calendar-->
+        <td>
+            <p class='date'><%=month.array[i].date%></p>
+            <%-month.array[i].contents%>
+        </td>
+
+        <!--For every sunday, move to the next week-->
+        <%if(month.array[i].day === 6){%>
+            </tr><tr>
+        <%}
+    }%>
+</table>
