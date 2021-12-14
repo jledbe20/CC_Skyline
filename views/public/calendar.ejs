@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>Charlotte Skyline Lighting</title>
+        <link rel="stylesheet" href="/assets/stylesheets/default.css">
+    </head>
+
+    <body>
+        <%- include ('partials/header'); -%>
+        
+        <main id="public_main">
+
+          <h2><%=month.name%> <%=yearNum%></h2>
+
+          <%- include ('../partials/calendar', {month:month}); -%>
+
+          <% // Make links to previous and next months.
+          let nextMonth = monthNum + 1;
+          let nextYear = yearNum;
+          let prevMonth = monthNum - 1;
+          let prevYear = yearNum;
+          if (nextMonth >= 12){
+            nextMonth = 0;
+            nextYear++;
+          }
+          if (prevMonth < 0){
+            prevMonth = 11;
+            prevYear--;
+          }%> 
+          <a href= <%=`/calendar/${prevMonth}/${prevYear}`%>>Previous Month</a>
+          <a href= <%=`/calendar/${nextMonth}/${nextYear}`%>>Next Month</a>
+        </main>
+
+        <%- include ('../partials/footer'); -%>
+    </body>
+
+</html>

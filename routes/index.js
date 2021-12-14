@@ -16,42 +16,35 @@ const passport = require('passport');
 var bodyParser = require("body-parser");
 router.use(bodyParser.urlencoded({ extended: false }));
 
+// Gets for the public side
 router.get('/', (req, res) => {
-	res.render('index', { title: 'Home' });
-});
-
-router.get('/notifications', async function (req, res) {
-	res.render('notifications');
-});
-
-router.get('/directory', async function (req, res) {
-	res.render('directory');
+	res.render('./public/index', { title: 'Home' });
 });
 
 router.get('/login', async function (req, res) {
-	res.render('login');
+	res.render('./public/login');
 });
 
 router.get('/contact', async function (req, res) {
-	res.render('contact');
+	res.render('./public/contact');
 });
 
 router.use('/calendar', calendarRouter);
 router.use('/calendar/*', calendarRouter);
 
 router.get('/faq', async function (req, res) {
-	res.render('faq');
+	res.render('./public/faq');
 });
 
 router.get('/request', async function (req, res) {
-	res.render('request');
+	res.render('./public/request');
 });
 
 router.get('/login', (req, res) => {
 	res.render('login', { title: 'Login' });
 });
 
-router.get('/private', (req, res) => {
+router.get('/calendar', (req, res) => {
 	res.render('private', { title: 'Logged In' });
 });
 
@@ -63,13 +56,21 @@ router.get('/secret', connectEnsureLogin.ensureLoggedIn(), (req, res) =>
 	res.render('secret', { title: 'Secret Page' })
 );
 
+router.get('/notifications', async function (req, res) {
+	res.render('notifications');
+});
+
+router.get('/directory', async function (req, res) {
+	res.render('directory');
+});
+
 router.get('/logout', (req, res) => {
 	req.logout();
 	res.redirect('/');
 });
 
 router.get('/*', async function (req, res) {
-	res.render('index');
+	res.render('./public/index');
 });
 
 // POST Routes
