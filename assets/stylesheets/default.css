@@ -573,7 +573,7 @@ aside {
 
 
 /* Request Form page */
-* {
+#formContainer * {
     margin: 5px;
 }
 
@@ -621,8 +621,8 @@ label {
 .calendarCell { 
     height: 25%;
     width: 14%;   
-    padding-right:7%;
-    padding-bottom:10%;
+    padding-right:5%;
+    padding-bottom:5%;
 }
 
 .calendarCell:hover {
