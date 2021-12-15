@@ -77,7 +77,13 @@ footer a:hover {
 
 /* Header Style */
 
+
 /* Create a header that is a 5 column, 3 row grid for the navigation */
+#banner {
+    height: auto;
+    width: auto;
+}
+
 #public_header{
     background-color: #ffffff;
     font-size: 16px;
@@ -197,6 +203,7 @@ will have its own internal grid after being assigned a large area of the current
 /* Footer Style */
 
 /* Footer for the public master page */
+
 #public_footer {
     display: grid;
     grid-template-rows: 50px 150px;
@@ -420,6 +427,7 @@ will have its own internal grid after being assigned a large area of the current
 }
 
 /* Notifications Page */
+
 aside {
     width: 28%;
     border-style: solid;
@@ -463,6 +471,7 @@ aside {
     border-style: solid;
     border-width: 2px;
     height: 500px;
+    padding-bottom: 50px;
 }
 
 #notifications_main h2 {
