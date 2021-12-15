@@ -69,7 +69,7 @@ router.get('/:month/:year', async function (req, res){
     events.forEach(ele => {
         month.addEvent(ele.requestDates.startDate.getDate(), ele.requestName);
     });
-	res.render('calendar', {month:month, 
+	res.render('public/calendar', {month:month, 
         yearNum:parseInt(req.params.year), 
         monthNum:parseInt(req.params.month)});
 });
