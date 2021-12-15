@@ -9,7 +9,7 @@ const mongoose = require('mongoose');
 var expressLayouts = require('express-ejs-layouts');
 const passport = require('passport');
 const session = require('express-session');
-const passportRouter = require('./routes/router.js');
+const passportRouter = require('./routes/passport_routes.js');
 const User = require("./models/user");
 const UserLogin = require("./models/userDetails");
 const Request = require("./models/requestForm");
@@ -103,7 +103,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(passport.initialize());
 app.use(passport.session());
 
-
 passport.use(UserLogin.createStrategy());
 passport.serializeUser(UserLogin.serializeUser());
 passport.deserializeUser(UserLogin.deserializeUser());
@@ -111,8 +110,7 @@ passport.deserializeUser(UserLogin.deserializeUser());
 app.use(indexRouter);
 app.use(passportRouter);
 // manually instantiate user in DB
-// UserDetails.register({username:'Jon', active: false}, 'test');
-// require('./path/to/passport/config/file')(passport);
+// UserLogin.register({username:'Jon', active: false}, 'test');
 
 app.listen(config.listenPort);
 console.log("Launching! Now listening on port", config.listenPort);

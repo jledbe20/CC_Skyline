@@ -3,6 +3,7 @@ const { appendFile } = require('fs');
 
 const calendarRouter = require('./calendar.js');
 const notificationsRouter = require('./notifications.js');
+const passportRouter = require('./passport_routes.js');
 const mongoose = require('mongoose');
 const Request = require("../models/requestForm");
 //mongoose.connect("mongodb://localhost/SkylineTest");
@@ -10,8 +11,8 @@ const Request = require("../models/requestForm");
 // Routes for passport (login middleware)
 const express = require('express');
 const router = express.Router();
-const connectEnsureLogin = require('connect-ensure-login');
-const passport = require('passport');
+// const connectEnsureLogin = require('connect-ensure-login');
+// const passport = require('passport');
 
 var bodyParser = require("body-parser");
 router.use(bodyParser.urlencoded({ extended: false }));
@@ -40,21 +41,22 @@ router.get('/request', async function (req, res) {
 	res.render('./public/request');
 });
 
-router.get('/login', (req, res) => {
-	res.render('login', { title: 'Login' });
-});
+router.use('/login', passportRouter);
+router.use('/login/*', passportRouter);
+router.use('/secret', passportRouter);
+router.use('/secret/*', passportRouter);
 
 router.get('/calendar', (req, res) => {
 	res.render('private', { title: 'Logged In' });
 });
 
-router.get('/private', connectEnsureLogin.ensureLoggedIn(), (req, res) =>
-	res.render('private', { title: 'Logged In' })
-);
+// router.get('/private', connectEnsureLogin.ensureLoggedIn(), (req, res) =>
+// 	res.render('private', { title: 'Logged In' })
+// );
 
-router.get('/secret', connectEnsureLogin.ensureLoggedIn(), (req, res) =>
-	res.render('secret', { title: 'Secret Page' })
-);
+// router.get('/secret', connectEnsureLogin.ensureLoggedIn(), (req, res) =>
+// 	res.render('secret', { title: 'Secret Page' })
+// );
 
 router.use('/notifications', notificationsRouter);
 
@@ -71,17 +73,18 @@ router.get('/*', async function (req, res) {
 	res.render('public/index');
 });
 
-// POST Routes
-router.post(
-	'/login',
-	passport.authenticate('local', {
-		failureRedirect: '/login',
-		successRedirect: '/private',
-	}),
-	(req, res) => {
-		console.log(req.user);
-	}
-);
+// passport POST routes
+// router.post(
+// 	'/login',
+// 	passport.authenticate('local', {
+// 		failureRedirect: '/login',
+// 		successRedirect: '/secret',
+// 	}),
+// 	(req, res) => {
+// 		console.log(req.user);
+// 	}
+// );
+
 
 router.post("/request", async function (req, res) {
 
