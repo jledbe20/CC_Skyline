@@ -35,8 +35,13 @@ footer a:hover {
     background-color: #ffffff;  
     padding: 2%;
     font-size: 18px;
+    align-items: center;
+    text-align: center;
 }
 
+#slider{
+    text-align: center;
+}
 /* Header Style */
 
 /* Create a header that is a 5 column, 3 row grid for the navigation */
