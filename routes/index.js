@@ -106,8 +106,15 @@ router.post("/request", async function (req, res) {
 	//https://www.tutorialspoint.com/nodejs/nodejs_response_object.htm
 	//https://school.geekwall.in/p/SJ_Tkqbi4
 	let request;
+
+	// If there is only one color hex
+	if (typeof req.body.hex === 'string'){
+		// Overwrite it with an array of itself, to match the many case.
+		req.body.hex = [req.body.hex];
+	}
+
 	try {
-		request = await Request.create({
+		await Request.create({
 			subContact: {
 				subName: req.body.name,
 				subPhone: req.body.phone,
@@ -122,7 +129,7 @@ router.post("/request", async function (req, res) {
 			},
 			requestName: req.body.eventName,
 			requestDescription: req.body.description,
-			requestColorHex: req.body.hex1,
+			requestColorHex: JSON.stringify(req.body.hex),
 			recurringEvent: boxOutput,
 			approvalRejectionComments: true
 
@@ -131,7 +138,7 @@ router.post("/request", async function (req, res) {
 		console.log(e);
 		return res.redirect("/request");
 	}
-	res.render("requestConfirmation.ejs");
+	res.render("public/requestConfirmation.ejs");
 	res.status(201).end();
 
 });
