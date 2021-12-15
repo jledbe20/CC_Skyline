@@ -39,7 +39,6 @@ footer a:hover {
     text-align: center;
 }
 
-
 #slider{
     position: relative;
     text-align: center;
@@ -48,6 +47,7 @@ footer a:hover {
 .bx-caption{
     padding-top: 5px;
     padding-bottom: 20px;
+    max-width: 600px;
 }
 
 .bx-wrapper{
@@ -55,11 +55,24 @@ footer a:hover {
     margin-right: auto;
     /* height: 825px; */
     height: auto;
+    width: auto;
+    background-color: rgb(31, 30, 30);
 }
 
 #sliderframe{
     align-self: center;
     text-align: center;
+    /* height: 675px; */
+    height: auto;
+}
+
+#sliderframe img{
+    max-height: 100%;
+    align-self: center;
+}
+
+#description {
+    z-index: 99;
 }
 
 /* Header Style */
