@@ -1,4 +1,4 @@
-
+// This is actually already defined before this point.
 notifications = JSON.parse(notifications);
 
 $(document).ready(function() {
