@@ -124,7 +124,7 @@ router.post("/request", async function (req, res) {
 			requestDescription: req.body.description,
 			requestColorHex: JSON.stringify(req.body.hex),
 			recurringEvent: boxOutput,
-			approvalRejectionComments: true
+			approvalRejectionComments: false
 
 		});
 	} catch (e) {

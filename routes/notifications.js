@@ -3,27 +3,35 @@ const { $where } = require('../models/requestForm');
 const Notification = require("../models/notifications");
 let router = Express.Router();
 
-router.get('/test', async function (req, res) { 
-    res.redirect('/index');
-});
+// Given a mongo query object, returns an array of all matching notificatons.
+async function getNotifications(query){
+    return new Promise((resolve,reject) => {
+    // Find all events that are within the month.
+    Notification.find(query).then(async (data) => {
+            resolve(data);
+        }).catch((err) => {
+            reject(err);
+        });
+    });
+}
 
 router.get('/', async function (req, res) {
-    var notification1 = [
-        "St. Jude Children's Research Walk Request",
-        "St. Jude Children's Research Walk is going to take place next week. To raise awareness about the event we would like to light the building red to promote the event. The red lights used to color the building event will fit the charity logo color. ",
-        ["Company A", "Company T", "Building 33"],
-        "September 24th, 2022",
-        "#FF0000"
-    ];
-    var notification2 = [
-        "4th of July",
-        "The Fourth of July celebrates the passage of the Declaration of Independence by the Continental Congress on July 4, 1776. The Declaration announced the political separation of the 13 North American colonies from Great Britain",
-        ["Company X", "Building 4", "Building 52", "Company W", "Company A", "Building 12", "Building 16", "Building 29"],
-        "July 4th, 2022",
-        "#0000FF"
-    ];
+    let rawNotifications = await getNotifications();
+    let processedNotifications = [];
+    for (let rawNotif of rawNotifications){
+        var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        let date = rawNotif.requestDates.startDate.toLocaleDateString("en-US", options)
+        let processed = [
+            rawNotif.requestName,
+            rawNotif.requestDescription,
+            rawNotif.participatingParties,
+            date,
+            rawNotif.requestColorHex[0]
+        ];
+        processedNotifications.push(processed);
+    }
     // Stringify the notifications
-    let str = JSON.stringify([notification1, notification2]);
+    let str = JSON.stringify(processedNotifications);
     res.render('notifications', { notifications: str });
 });
 
