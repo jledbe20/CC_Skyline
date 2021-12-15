@@ -89,6 +89,15 @@ footer a:hover {
     margin-right: 10px;
 }
 
+#notification_bell{
+    grid-row: 1;
+    grid-column: 5 / 6;
+    right: 75px;
+    position: absolute;
+    text-align: right;
+    margin-right: 10px;
+}
+
 /* Main content of the naviagtion for the public side, 
 will have its own internal grid after being assigned a large area of the current grid for the header */
 #public_header_row{
