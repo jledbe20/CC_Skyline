@@ -12,15 +12,16 @@
         
         <main id="public_main">
             <h1>Lighting Event Request Form</h1>
-
-            <p>Please note that requests are reviewed and any not meeting the guidelines of CCC will be rejected. These include but are not limited to:</p>
-            <ul>
-                <li>Politics</li>
-                <li>Birthdays</li>
-                <li>Baby Gender Reveals</li>
-                <li>Company Birthdays</li>
-            </ul>
-            <p>To see more information about what requests are likely to be rejected, please visit the FAQ page. This will also give you more information about the lighting of the Charlotte skyline and why events are chosen. </p>
+            <div id='requestFrame'>
+                <p>Please note that requests are reviewed and any not meeting the guidelines of CCC will be rejected. These include but are not limited to:</p>
+                <ul>
+                    <li>Politics</li>
+                    <li>Birthdays</li>
+                    <li>Baby Gender Reveals</li>
+                    <li>Company Birthdays</li>
+                </ul>
+                <p>To see more information about what requests are likely to be rejected, please visit the FAQ page. This will also give you more information about the lighting of the Charlotte skyline and why events are chosen. </p>
+            </div>
 
             <form action="/request" method='POST'>
                 <div class="formContainer" id="formContainer">
@@ -57,9 +58,8 @@
                     <label>Color(s)</label>
                         <input type='color' name='hex'>
                 </div>
-                <br>
                 <a id='addColor' type='button'>+ Add Color</a>
-                <br>
+                <br><br>
                 <input type='submit' value='Submit'>
             </form>
 
