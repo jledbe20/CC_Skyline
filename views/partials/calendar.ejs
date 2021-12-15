@@ -1,4 +1,4 @@
-<table class='calendar'>
+<table class='calendar' id='calendarTable'>
     <tr>
       <th>Sunday</th>
       <th>Monday</th>
@@ -15,7 +15,7 @@
     <%}
     for (let i=0; i < month.array.length; i++){%>
         <!--For each real day, add a block to the calendar-->
-        <td>
+        <td class="calendarCell">
             <p class='date'><%=month.array[i].date%></p>
             <%-month.array[i].contents%>
         </td>
