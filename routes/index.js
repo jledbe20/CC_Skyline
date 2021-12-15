@@ -87,14 +87,10 @@ router.post("/request", async function (req, res) {
 
 	//checkbox check for recurring
 	var boxOutput = false;
-	var checkoutMessage;
 
 	let checkedValue = req.body["isRecurring"];
 	if (checkedValue) {
-		checkoutMessage += 'the box WAS checked';
 		boxOutput = true;
-	} else {
-		checkoutMessage += 'the box was NOT checked';
 	}
 	//need to add a validator (theses might help) https://mongoosejs.com/docs/validation.html
 	//https://flaviocopes.com/express-validate-input/ 
@@ -103,7 +99,6 @@ router.post("/request", async function (req, res) {
 	//https://school.geekwall.in/p/SJ_Tkqbi4
 	//https://www.tutorialspoint.com/nodejs/nodejs_response_object.htm
 	//https://school.geekwall.in/p/SJ_Tkqbi4
-	let request;
 
 	// If there is only one color hex
 	if (typeof req.body.hex === 'string'){
