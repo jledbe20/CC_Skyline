@@ -11,12 +11,12 @@ const passport = require('passport');
 const session = require('express-session');
 const passportRouter = require('./routes/passport_routes.js');
 const User = require("./models/user");
-const UserLogin = require("./models/userDetails");
+const UserLogin = require("./models/userLogin");
 const Request = require("./models/requestForm");
 const Notifications = require("./models/notifications");
 require('dotenv').config();
 
-const MONGODB_URI = "mongodb://localhost/SkylineTest";
+const MONGODB_URI = "mongodb+srv://skylineT:unccSkyline2022@cluster0.59ufx.mongodb.net/";
 
 // mongoose.connect('mongodb://localhost:27017/skyliners');
 mongoose.connect(MONGODB_URI, {
@@ -109,8 +109,12 @@ passport.deserializeUser(UserLogin.deserializeUser());
 
 app.use(indexRouter);
 app.use(passportRouter);
-// manually instantiate user in DB
-// UserLogin.register({username:'Jon', active: false}, 'test');
+
+// manually instantiate users in DB
+// UserLogin.register({username:'Jon', active: false}, 'test', 0);
+// UserLogin.register({username:'Moira', active: false}, 'test', 0)
+// UserLogin.register({username:'Paul', active: false}, 'test', 1)
+// UserLogin.register({username:'Drew', active: false}, 'test', 2)
 
 app.listen(config.listenPort);
 console.log("Launching! Now listening on port", config.listenPort);

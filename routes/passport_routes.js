@@ -16,6 +16,10 @@ router.get('/secret', connectEnsureLogin.ensureLoggedIn(), (req, res) =>
   res.render('secret', { title: 'Secret Page' })
 );
 
+router.get('/private', connectEnsureLogin.ensureLoggedIn(), (req, res) =>
+  res.render('private', { title: 'Logged In' })
+);
+
 router.get('/logout', (req, res) => {
   req.logout();
   res.redirect('/');
@@ -26,7 +30,7 @@ router.post(
   '/login',
   passport.authenticate('local', {
     failureRedirect: '/login',
-    successRedirect: '/secret',
+    successRedirect: '/private',
   }),
   (req, res) => {
     console.log(req.user);

@@ -45,6 +45,8 @@ router.use('/login', passportRouter);
 router.use('/login/*', passportRouter);
 router.use('/secret', passportRouter);
 router.use('/secret/*', passportRouter);
+router.use('/private', passportRouter);
+router.use('/private/*', passportRouter);
 
 router.get('/calendar', (req, res) => {
 	res.render('private', { title: 'Logged In' });

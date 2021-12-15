@@ -39,9 +39,29 @@ footer a:hover {
     text-align: center;
 }
 
+
 #slider{
+    position: relative;
     text-align: center;
 }
+
+.bx-caption{
+    padding-top: 5px;
+    padding-bottom: 20px;
+}
+
+.bx-wrapper{
+    margin-left: auto;
+    margin-right: auto;
+    /* height: 825px; */
+    height: auto;
+}
+
+#sliderframe{
+    align-self: center;
+    text-align: center;
+}
+
 /* Header Style */
 
 /* Create a header that is a 5 column, 3 row grid for the navigation */

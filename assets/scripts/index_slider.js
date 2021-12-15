@@ -9,7 +9,7 @@ $(document).ready(function() {
         speed: 500,
         slideMargin:10,
         captions: true,
-        adaptiveHeight: true
+        adaptiveHeight: true,
     })
 
 });
