@@ -2,7 +2,7 @@ const Express = require('express');
 const { appendFile } = require('fs');
 
 const calendarRouter = require('./calendar.js');
-
+const notificationsRouter = require('./notifications.js');
 const mongoose = require('mongoose');
 const Request = require("../models/requestForm");
 //mongoose.connect("mongodb://localhost/SkylineTest");
@@ -56,9 +56,7 @@ router.get('/secret', connectEnsureLogin.ensureLoggedIn(), (req, res) =>
 	res.render('secret', { title: 'Secret Page' })
 );
 
-router.get('/notifications', async function (req, res) {
-	res.render('notifications');
-});
+router.use('/notifications', notificationsRouter);
 
 router.get('/directory', async function (req, res) {
 	res.render('directory');
@@ -70,7 +68,7 @@ router.get('/logout', (req, res) => {
 });
 
 router.get('/*', async function (req, res) {
-	res.render('./public/index');
+	res.render('public/index');
 });
 
 // POST Routes
