@@ -47,7 +47,9 @@ footer a:hover {
 .bx-caption{
     padding-top: 5px;
     padding-bottom: 20px;
-    max-width: 600px;
+    padding-left: 10px;
+    margin-left: 10px;
+    max-width: 590px;
 }
 
 .bx-wrapper{
@@ -56,7 +58,11 @@ footer a:hover {
     /* height: 825px; */
     height: auto;
     width: auto;
-    background-color: rgb(31, 30, 30);
+    background-color: rgba(31, 30, 30, 255);
+}
+
+.bx-viewport{
+    margin-right: 0px;
 }
 
 #sliderframe{
@@ -69,6 +75,18 @@ footer a:hover {
 #sliderframe img{
     max-height: 100%;
     align-self: center;
+    width: auto;
+    height: auto;
+}
+
+#sliderframe li{
+    max-height: 100%;
+    align-self: center;
+    margin-right: 0px;
+    padding-right: 0px;
+    margin-left: 10px;
+    padding-left: 10px;
+    /* width:auto; */
 }
 
 #description {
