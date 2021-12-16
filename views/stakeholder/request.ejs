@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>Charlotte Skyline Lighting</title>
+        <link rel="stylesheet" href="/assets/stylesheets/default.css">
+    </head>
+
+    <body>
+        <%- include ('../partials/header_stakeholder'); -%>
+        
+        <main id="public_main">
+            <h1>Lighting Event Request Form</h1>
+
+            <p>Please note that requests are reviewed and any not meeting the guidelines of CCC will be rejected. These include but are not limited to:</p>
+            <ul>
+                <li>Politics</li>
+                <li>Birthdays</li>
+                <li>Baby Gender Reveals</li>
+                <li>Company Birthdays</li>
+            </ul>
+            <p>To see more information about what requests are likely to be rejected, please visit the FAQ page. This will also give you more information about the lighting of the Charlotte skyline and why events are chosen. </p>
+
+            <form action="/request" method='POST'>
+                <h2>Your Contact Information</h2>
+                <label for='name'>Name:</label>
+                    <input type='text' id='name' name='name'>
+                <label for='email'>Email:</label>
+                    <input type='email' id='email' name='email'>
+                <label for='phone'>Phone:</label>
+                    <input type='phone' id='phone' name='phone' pattern="\d{3}[\-]\d{3}[\-]\d{4}" title="Must be in 999-999-9999 format">
+                <hr>
+
+                <h2>Event Information</h2>
+                <label for='eventName'>Name:</label>
+                    <input type='text' id='eventName' name='eventName'>
+                <br>
+                <label for='description'>Description:</label>
+                    <textarea type='text' id='description' name='description'></textarea>
+                <br>
+                <label for='startTime'>Start Time:</label>
+                    <input type="time" id='startTime' name='startTime'>
+                    <input type="date" id='startDate' name='startDate'>
+                <br>
+                <label for='endTime'>End Time:</label>
+                    <input type="time" id='endTime' name='endTime'>
+                    <input type="date" id='endDate' name='endDate'>
+                <br>
+                <label for='isRecurring'>This is a recurring event</label>
+                    <input type='checkbox' id='isRecurring' name='isRecurring'>
+                <hr>
+                <!-- For now, this will stay a simple color input. 
+                    We can upgrade to a custom implementation if we have time
+                    Will need to add for images as well-->
+                <label>Color(s)</label>
+                    <input type='color' id='hex1' name='hex1'>
+                <br>
+                <input type='submit' value='Submit'>
+            </form>
+
+        </main>
+
+        <%- include ('../partials/footer_stakeholder'); -%>
+    </body>
+
+</html>

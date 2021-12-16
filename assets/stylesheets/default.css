@@ -35,11 +35,73 @@ footer a:hover {
     background-color: #ffffff;  
     padding: 2%;
     font-size: 18px;
+    align-items: center;
+    text-align: center;
+}
+
+#slider{
+    position: relative;
+    text-align: center;
+}
+
+.bx-caption{
+    padding-top: 5px;
+    padding-bottom: 20px;
+    padding-left: 10px;
+    margin-left: 10px;
+    max-width: 590px;
+}
+
+.bx-wrapper{
+    margin-left: auto;
+    margin-right: auto;
+    /* height: 825px; */
+    height: auto;
+    width: auto;
+    background-color: rgba(31, 30, 30, 255);
+}
+
+.bx-viewport{
+    margin-right: 0px;
+}
+
+#sliderframe{
+    align-self: center;
+    text-align: center;
+    /* height: 675px; */
+    height: auto;
+}
+
+#sliderframe img{
+    max-height: 100%;
+    align-self: center;
+    width: auto;
+    height: auto;
+}
+
+#sliderframe li{
+    max-height: 100%;
+    align-self: center;
+    margin-right: 0px;
+    padding-right: 0px;
+    margin-left: 10px;
+    padding-left: 10px;
+    /* width:auto; */
+}
+
+#description {
+    z-index: 99;
 }
 
 /* Header Style */
 
+
 /* Create a header that is a 5 column, 3 row grid for the navigation */
+#banner {
+    height: auto;
+    width: auto;
+}
+
 #public_header{
     background-color: #ffffff;
     font-size: 16px;
@@ -52,7 +114,7 @@ footer a:hover {
     border-bottom: 1px solid #3d6e71;
 }
 
-/* Public Naviagation Bar Style */
+/* Public Navigation Bar Style */
 
 /* Logo in the grid */
 #ccc_logo_grid_item{
@@ -85,6 +147,16 @@ footer a:hover {
 #login_header_item{
     grid-row: 1;
     grid-column: 5 / 6;
+    text-align: right;
+    margin-right: 10px;
+    margin-left: 70%;
+}
+
+#notification_bell{
+    grid-row: 1;
+    grid-column: 5 / 6;
+    right: 75px;
+    position: absolute;
     text-align: right;
     margin-right: 10px;
 }
@@ -149,6 +221,7 @@ will have its own internal grid after being assigned a large area of the current
 /* Footer Style */
 
 /* Footer for the public master page */
+
 #public_footer {
     display: grid;
     grid-template-rows: 50px 150px;
@@ -372,6 +445,7 @@ will have its own internal grid after being assigned a large area of the current
 }
 
 /* Notifications Page */
+
 aside {
     width: 28%;
     border-style: solid;
@@ -415,6 +489,7 @@ aside {
     border-style: solid;
     border-width: 2px;
     height: 500px;
+    padding-bottom: 50px;
 }
 
 #notifications_main h2 {
@@ -576,6 +651,64 @@ aside {
 
 .event_link:visited {
     color: inherit;
+=======
+
+/* Request Form page */
+#formContainer * {
+    margin: 5px;
+}
+
+label {
+    border: 10px;
+}
+
+#addColor {
+    border-color: black;
+    border-width: 2px;
+    border-style: solid;
+    padding: 2px;
+}
+
+#requestFrame {
+    margin-left: auto;
+    margin-right: auto;
+    /* width: 650px; */
+    width: 75%;
+}
+
+/* Calendar page */
+
+#calendarMonth {
+    margin-left: auto;
+    margin-right: auto;
+    border-color: black;
+    border-width: 2px;
+    border-style: solid;
+    padding: 2px;
+}
+
+#calendarFrame {
+    margin-left: auto;
+    margin-right: auto;
+    /* width: 75%; */
+    width:671px;
+}
+
+#calendarTable {
+    border: 1px solid black;
+    border-collapse: separate;
+}
+
+.calendarCell { 
+    height: 25%;
+    width: 14%;   
+    padding-right:5%;
+    padding-bottom:5%;
+}
+
+.calendarCell:hover {
+    background-color: rgb(64, 7, 66);
+    color: white;
 }
 
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -605,4 +738,3 @@ hr {
 #smaller_font{
     font-size: 15px;
 }
-

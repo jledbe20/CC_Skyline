@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
     <head>
          <title>Charlotte Skyline Lighting</title>
          <link rel="stylesheet" href="../assets/stylesheets/default.css">
          <link rel="stylesheet" href="../assets/jquery-ui-1.12.1.custom/jquery-ui.min.css">
          <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+         <script>
+             // Get notifications as encoded JSON, unencode (but leave in JSON form)
+             var notifications = $('<div />').html('<%=notifications%>').text();
+         </script>
          <script src="../assets/scripts/load_notifications.js"></script>
     </head>
 

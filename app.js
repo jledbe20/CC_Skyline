@@ -9,13 +9,14 @@ const mongoose = require('mongoose');
 var expressLayouts = require('express-ejs-layouts');
 const passport = require('passport');
 const session = require('express-session');
-const passportRouter = require('./routes/router.js');
+const passportRouter = require('./routes/passport_routes.js');
 const User = require("./models/user");
+const UserLogin = require("./models/userLogin");
 const Request = require("./models/requestForm");
 const Notifications = require("./models/notifications");
 require('dotenv').config();
 
-const MONGODB_URI = "mongodb://localhost/SkylineTest";
+const MONGODB_URI = "mongodb+srv://skylineT:unccSkyline2022@cluster0.59ufx.mongodb.net/";
 
 // mongoose.connect('mongodb://localhost:27017/skyliners');
 mongoose.connect(MONGODB_URI, {
@@ -102,16 +103,18 @@ app.use(express.urlencoded({ extended: false }));
 app.use(passport.initialize());
 app.use(passport.session());
 
-
-passport.use(User.createStrategy());
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
+passport.use(UserLogin.createStrategy());
+passport.serializeUser(UserLogin.serializeUser());
+passport.deserializeUser(UserLogin.deserializeUser());
 
 app.use(indexRouter);
 app.use(passportRouter);
-// manually instantiate user in DB
-// UserDetails.register({username:'Jon', active: false}, 'test');
-// require('./path/to/passport/config/file')(passport);
+
+// manually instantiate users in DB
+// UserLogin.register({username:'Jon', active: false}, 'test', 0);
+// UserLogin.register({username:'Moira', active: false}, 'test', 0)
+// UserLogin.register({username:'Paul', active: false}, 'test', 1)
+// UserLogin.register({username:'Drew', active: false}, 'test', 2)
 
 app.listen(config.listenPort);
 console.log("Launching! Now listening on port", config.listenPort);

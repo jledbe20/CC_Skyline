@@ -1,4 +1,4 @@
-<table class='calendar'>
+<table class='calendar' id='calendarTable'>
     <tr>
       <th>Sunday</th>
       <th>Monday</th>
@@ -24,6 +24,10 @@
                     <a class="event_link" href="#"><%-month.array[i].contents%></a>
                 </p>
             </div>
+=======
+        <td class="calendarCell">
+            <p class='date'><%=month.array[i].date%></p>
+            <%-month.array[i].contents%>
         </td>
 
         <!--For every sunday, move to the next week-->
