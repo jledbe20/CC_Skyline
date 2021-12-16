@@ -651,7 +651,7 @@ aside {
 
 .event_link:visited {
     color: inherit;
-=======
+}
 
 /* Request Form page */
 #formContainer * {
@@ -674,41 +674,6 @@ label {
     margin-right: auto;
     /* width: 650px; */
     width: 75%;
-}
-
-/* Calendar page */
-
-#calendarMonth {
-    margin-left: auto;
-    margin-right: auto;
-    border-color: black;
-    border-width: 2px;
-    border-style: solid;
-    padding: 2px;
-}
-
-#calendarFrame {
-    margin-left: auto;
-    margin-right: auto;
-    /* width: 75%; */
-    width:671px;
-}
-
-#calendarTable {
-    border: 1px solid black;
-    border-collapse: separate;
-}
-
-.calendarCell { 
-    height: 25%;
-    width: 14%;   
-    padding-right:5%;
-    padding-bottom:5%;
-}
-
-.calendarCell:hover {
-    background-color: rgb(64, 7, 66);
-    color: white;
 }
 
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
