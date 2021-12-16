@@ -63,7 +63,7 @@ router.get('/calendar', (req, res) => {
 router.use('/notifications', notificationsRouter);
 
 router.get('/directory', async function (req, res) {
-	res.render('directory');
+	res.render('stakeholder/directory');
 });
 
 router.get('/logout', (req, res) => {
