@@ -32,7 +32,7 @@ router.get('/', async function (req, res) {
     }
     // Stringify the notifications
     let str = JSON.stringify(processedNotifications);
-    res.render('notifications', { notifications: str });
+    res.render('public/notifications', { notifications: str });
 });
 
 module.exports = router;
