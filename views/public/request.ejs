@@ -23,7 +23,9 @@
                 <p>To see more information about what requests are likely to be rejected, please visit the FAQ page. This will also give you more information about the lighting of the Charlotte skyline and why events are chosen. </p>
             </div>
 
-            <form action="/request" method='POST'>
+         <!--enctyoe multipart/form is an enocding type that allows files ot be sent through a POST. without this encoding,
+            the file cannot be sent through POST. if I want to allow users to upload a file via a form, i need to use this enctype. -->
+            <form action="/request" enctype="multipart/form-data" method='POST'>
                 <div class="formContainer" id="formContainer">
                     <h2>Your Contact Information</h2>
                     <label for='name'>Name:</label>
@@ -55,11 +57,16 @@
                     <!-- For now, this will stay a simple color input. 
                         We can upgrade to a custom implementation if we have time
                         Will need to add for images as well-->
+                        
                     <label>Color(s)</label>
                         <input type='color' name='hex'>
                 </div>
                 <br><a id='addColor' type='button'>+ Add Color</a>
                 <br><br>
+                        <label for = "image"> Upload image</label>
+                        <input type="file" id="image" name = "image" >
+                        <br><br>
+
                 <input type='submit' value='Submit'>
             </form>
 

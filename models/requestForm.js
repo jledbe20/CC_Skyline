@@ -18,6 +18,16 @@ const eventDate = new mongoose.Schema({
 
 });
 
+const imageUpload = new mongoose.Schema({
+    fileImgName: {
+        type: String,
+    },
+    img:{
+        data:Buffer,
+        contentType: String
+    }
+});
+
 const requestSchema = new mongoose.Schema({
     subContact : submitterSchema,
 
@@ -30,6 +40,8 @@ const requestSchema = new mongoose.Schema({
     requestDates: eventDate,
 
     recurringEvent: Boolean,
+
+    requestImage: imageUpload,
     
     approvalRejectionComments:{type:String },
 
