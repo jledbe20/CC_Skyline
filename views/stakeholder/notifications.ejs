@@ -8,8 +8,8 @@
          <link rel="stylesheet" href="../assets/jquery-ui-1.12.1.custom/jquery-ui.min.css">
          <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
          <script>
-             // Get notifications as encoded JSON, unencode (but leave in JSON form)
-             var notifications = $('<div />').html('<%=notifications%>').text();
+             // Ignore the syntax error, this works
+             var notifications = <%-notifications%>;
          </script>
          <script src="../assets/scripts/load_notifications.js"></script>
     </head>
