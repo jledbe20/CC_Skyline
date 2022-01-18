@@ -56,7 +56,7 @@ async function getRequests(year, month){
     });
 }
 
-// Given year and month as strings, returns all matching requests as a promise
+// Given year and month as strings, returns all matching notifications as a promise
 async function getNotifications(year, month){
     return new Promise((resolve,reject) => {
     let string = year + '-' + month;
@@ -80,6 +80,20 @@ router.get('/:month/:year', async function (req, res){
     let month = createMonthByYear(req.params.month, req.params.year);
     // Months are zero-indexed in the query, but one-indexed in the DB...
     let events = await getNotifications(req.params.year, parseInt(req.params.month)+1);
+    events.forEach(ele => {
+        month.addEvent(ele.requestDates.startDate.getDate(), ele.requestName);
+    });
+	res.render('public/calendar', {month:month, 
+        yearNum:parseInt(req.params.year), 
+        monthNum:parseInt(req.params.month)});
+});
+
+// TODO: Delete this function once the admin view is functional
+// This serves as a stand-in for the admin view for testing
+router.get('/test/:month/:year', async function (req, res){
+    let month = createMonthByYear(req.params.month, req.params.year);
+    // Months are zero-indexed in the query, but one-indexed in the DB...
+    let events = await getRequests(req.params.year, parseInt(req.params.month)+1);
     events.forEach(ele => {
         month.addEvent(ele.requestDates.startDate.getDate(), ele.requestName);
     });
