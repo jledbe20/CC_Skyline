@@ -2,6 +2,7 @@ const Express = require('express');
 const { nextTick } = require('process');
 let router = Express.Router();
 const Request = require("../models/requestForm");
+const Notification = require("../models/notifications");
 
 // A single block (day) in the calendar
 class CalendarDay{
@@ -55,6 +56,19 @@ async function getRequests(year, month){
     });
 }
 
+// Given year and month as strings, returns all matching requests as a promise
+async function getNotifications(year, month){
+    return new Promise((resolve,reject) => {
+    let string = year + '-' + month;
+    // Find all events that are within the month.
+    Notification.find({'requestDates.startDate': {$gte: (string + '-01'), $lte: (string + '-31') }}).then(async (data) => {
+            resolve(data);
+        }).catch((err) => {
+            reject(err);
+        });
+    });
+}
+
 router.get('/', async function (req, res) {
     let now = new Date();
     let month = now.getMonth();
@@ -65,7 +79,7 @@ router.get('/', async function (req, res) {
 router.get('/:month/:year', async function (req, res){
     let month = createMonthByYear(req.params.month, req.params.year);
     // Months are zero-indexed in the query, but one-indexed in the DB...
-    let events = await getRequests(req.params.year, parseInt(req.params.month)+1);
+    let events = await getNotifications(req.params.year, parseInt(req.params.month)+1);
     events.forEach(ele => {
         month.addEvent(ele.requestDates.startDate.getDate(), ele.requestName);
     });
