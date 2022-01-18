@@ -18,9 +18,21 @@ async function getNotifications(query){
 }
 
 // Approve a given request
-router.post('/approveRequest', urlencodedParser, async function(req, res){
+router.post('/updateRequest', urlencodedParser, async function(req, res){
 	// TODO: Change this password validation to instead check the user's authentication (should be admin only)
-	if (req.body.password != config.adminPass) return res.send('Error: Invalid Password');
+	if (req.body.pass != 'password'){
+        return res.send('Error: Invalid Password');
+    }
+
+    let request = await getRequests({_id: req.body.requestID})[0];
+
+    // TODO: Add a notification to the database that's a copy of request if approved. Delete if denied?
+    if (req.body.approve == ''){
+    } else if (req.body.deny == ''){
+
+    } else {
+        return res.send('Error: How did you get here?');
+    }
 });
 
 // Given a mongo query object, returns an array of all matching requests.
@@ -68,7 +80,8 @@ router.get('/test', async function (req, res) {
             rawNotif.requestDescription,
             rawNotif.participatingParties,
             date,
-            rawNotif.requestColorHex[0]
+            rawNotif.requestColorHex[0],
+            rawNotif._id
         ];
         processedNotifications.push(processed);
     }

@@ -1,6 +1,3 @@
-// Ignore the syntax error, this is actually already defined before this point.
-console.log(notifications);
-
 $(document).ready(function() {
 
     $("aside").empty();
@@ -16,9 +13,12 @@ $(document).ready(function() {
         $(this).css("background-color", "#284B63");
         $(this).css("color", "#ffffff");
         var notification = notifications[parseInt($(this).attr("id"))];
+        console.log(notification);
         $("#subject").text("Subject: " + notification[0]);
         $("#event_description").text(notification[1]);
         $("#participating_members").empty();
+        // Update the value of this field to match the notification's ID
+        $("#requestID").val(notification[5]);
         for(var i = 0; i < notification[2].length; i++) {
             $("#participating_members").append(
                 "<li>" + notification[2][i] + "</li>"

@@ -38,8 +38,13 @@
         </div>
         <div class="response">
             <h2>Would you like to approve this event?</h2>
-            <button type="button" id="accept">Approve</button>
-            <button type="button" id="decline">Deny</button>
+            <form action="/notifications/updateRequest" method='POST'>
+                <button name="approve" type="submit" id="accept">Approve</button>
+                <button name="deny" type="submit"  id="decline">Deny</button>
+                <input type="hidden" name="requestID" id="requestID" value=''>
+                <!-- Temporary addition, remove once authentication works -->
+                <input type="text" id="pass" name='pass'>
+            </form>
         </div>
     </main>
     <aside>
