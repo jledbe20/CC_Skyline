@@ -3,6 +3,7 @@ const { $where } = require('../models/requestForm');
 const Notification = require("../models/notifications");
 const Request = require("../models/requestForm");
 let router = Express.Router();
+let urlencodedParser = Express.urlencoded({ extended: false});
 
 // Given a mongo query object, returns an array of all matching notificatons.
 async function getNotifications(query){
@@ -15,6 +16,12 @@ async function getNotifications(query){
         });
     });
 }
+
+// Approve a given request
+router.post('/approveRequest', urlencodedParser, async function(req, res){
+	// TODO: Change this password validation to instead check the user's authentication (should be admin only)
+	if (req.body.password != config.adminPass) return res.send('Error: Invalid Password');
+});
 
 // Given a mongo query object, returns an array of all matching requests.
 async function getRequests(query){
@@ -67,7 +74,8 @@ router.get('/test', async function (req, res) {
     }
     // Stringify the notifications
     let str = JSON.stringify(processedNotifications);
-    res.render('public/notifications', { notifications: str });
+    
+    res.render('admin/notifications', { notifications: str });
 });
 
 module.exports = router;
