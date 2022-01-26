@@ -14,8 +14,6 @@ const path = require('path');
 
 const express = require('express');
 const router = express.Router();
-// const connectEnsureLogin = require('connect-ensure-login');
-// const passport = require('passport');
 
 const bodyParser = require("body-parser");
 router.use(bodyParser.urlencoded({
@@ -69,6 +67,7 @@ router.get('/request', async function (req, res) {
 	res.render('./public/request');
 });
 
+// Pass login routers to passport routes files
 router.use('/login', passportRouter);
 router.use('/login/*', passportRouter);
 router.use('/secret', passportRouter);
@@ -76,16 +75,7 @@ router.use('/secret/*', passportRouter);
 router.use('/private', passportRouter);
 router.use('/private/*', passportRouter);
 
-router.get('/calendar', (req, res) => {
-	res.render('private', { title: 'Logged In' });
-});
 
-// router.get('/private', connectEnsureLogin.ensureLoggedIn(), (req, res) =>
-// 	res.render('private', { title: 'Logged In' })
-// );
-
-// router.get('/secret', connectEnsureLogin.ensureLoggedIn(), (req, res) =>
-// 	res.render('secret', { title: 'Secret Page' })
 router.use('/notifications', notificationsRouter);
 
 router.get('/directory', async function (req, res) {
@@ -101,21 +91,8 @@ router.get('/*', async function (req, res) {
 	res.render('public/index');
 });
 
-// passport POST routes
-// router.post(
-// 	'/login',
-// 	passport.authenticate('local', {
-// 		failureRedirect: '/login',
-// 		successRedirect: '/secret',
-// 	}),
-// 	(req, res) => {
-// 		console.log(req.user);
-// 	}
-// );
-
-
 router.post("/request", upload.single('image'), async function (req, res, next) {
-    //checkbox check for recurring
+    // checkbox check for recurring
     var boxOutput = false;
 
     let checkedValue = req.body["isRecurring"];
@@ -130,7 +107,7 @@ router.post("/request", upload.single('image'), async function (req, res, next) 
     }
     try {
         var dataPath = fs.readFileSync(path.join('./uploads/' + req.file.filename));
-        console.log("images is uploaded");
+        console.log("image is uploaded");
         let reqObj = {
             requestImage: {
                 fileImgName: req.file.originalname,
@@ -164,14 +141,14 @@ router.post("/request", upload.single('image'), async function (req, res, next) 
             else {
                 console.log('saved with images');
                 item.save();
-                //might be an issue
+                // might be an issue
                 res.redirect('public/requestConfirmation');
                 res.status(201).end();
             }
         });
     }
     catch (e) {
-        console.log(dataPath);
+        console.log(dataPath);  
         reqObj = {
             subContact: {
                 subName: req.body.name,

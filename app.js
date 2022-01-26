@@ -111,10 +111,10 @@ app.use(indexRouter);
 app.use(passportRouter);
 
 // manually instantiate users in DB
-// UserLogin.register({username:'Jon', active: false}, 'test', 0);
-// UserLogin.register({username:'Moira', active: false}, 'test', 0)
-// UserLogin.register({username:'Paul', active: false}, 'test', 1)
-// UserLogin.register({username:'Drew', active: false}, 'test', 2)
+// UserLogin.register({username:'Jon', active: false}, 'test');
+// UserLogin.register({username:'Moira', active: false}, 'test')
+// UserLogin.register({username:'Paul', active: false}, 'test')
+// UserLogin.register({username:'Drew', active: false}, 'test')
 
 app.listen(config.listenPort);
 console.log("Launching! Now listening on port", config.listenPort);
