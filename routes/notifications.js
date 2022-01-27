@@ -52,7 +52,7 @@ async function getRequests(query){
 }
 
 router.get('/', async function (req, res) {
-    let rawNotifications = await getNotifications();
+    let rawNotifications = await getNotifications({'requestDates.endDate': {'$gte': Date.now()}});
     let processedNotifications = [];
     for (let rawNotif of rawNotifications){
         var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
@@ -79,13 +79,14 @@ router.get('/', async function (req, res) {
 // TODO: Delete this method once the admin view functions
 // This function is for testing admin view functionality
 router.get('/test', async function (req, res) {
-    let rawNotifications = await getRequests();
+    // Get only requests in the past.
+    let rawNotifications = await getRequests({'requestDates.endDate': {'$gte': Date.now()}});
     let processedNotifications = [];
     for (let rawNotif of rawNotifications){
         var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
         let date = null;
         try{
-            date = rawNotif.requestDates.startDate.toLocaleDateString("en-US", options);
+            date = rawNotif.requestDates.endDate.toLocaleDateString("en-US", options);
         } catch (e){
             console.log('Error: Malformed Request Object: ' + rawNotif)
         }
