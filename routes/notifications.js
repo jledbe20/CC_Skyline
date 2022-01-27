@@ -20,19 +20,23 @@ async function getNotifications(query){
 // Approve a given request
 router.post('/updateRequest', urlencodedParser, async function(req, res){
 	// TODO: Change this password validation to instead check the user's authentication (should be admin only)
+    // TODO: Make this asynchronous for the user, so that the page doesn't reload.
 	if (req.body.pass != 'password'){
         return res.send('Error: Invalid Password');
     }
 
-    let request = await getRequests({_id: req.body.requestID})[0];
+    let request = await getRequests({_id: req.body.requestID});
+    request = request[0]
 
-    // TODO: Add a notification to the database that's a copy of request if approved. Delete if denied?
     if (req.body.approve == ''){
-    } else if (req.body.deny == ''){
-
-    } else {
-        return res.send('Error: How did you get here?');
+        let toSave = new Notification({requestName: request.requestName, requestDescription: request.requestDescription, 
+            requestColorHex: request.requestColorHex, requestDate: request.requestDate, 
+            recurringEvent: request.recurringEvent, approvalRejectionComments: request.approvalRejectionComments});
+        toSave.save()
     }
+    // Delete the request object.
+    await Request.deleteOne({_id: req.body.requestID});
+    res.redirect('/notifications/');
 });
 
 // Given a mongo query object, returns an array of all matching requests.
@@ -52,7 +56,12 @@ router.get('/', async function (req, res) {
     let processedNotifications = [];
     for (let rawNotif of rawNotifications){
         var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-        let date = rawNotif.requestDates.startDate.toLocaleDateString("en-US", options)
+        let date = null;
+        try{
+            date = rawNotif.requestDates.startDate.toLocaleDateString("en-US", options);
+        } catch (e){
+            // do nothing
+        }
         let processed = [
             rawNotif.requestName,
             rawNotif.requestDescription,
@@ -74,7 +83,12 @@ router.get('/test', async function (req, res) {
     let processedNotifications = [];
     for (let rawNotif of rawNotifications){
         var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-        let date = rawNotif.requestDates.startDate.toLocaleDateString("en-US", options)
+        let date = null;
+        try{
+            date = rawNotif.requestDates.startDate.toLocaleDateString("en-US", options);
+        } catch (e){
+            // do nothing
+        }
         let processed = [
             rawNotif.requestName,
             rawNotif.requestDescription,
