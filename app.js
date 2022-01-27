@@ -116,8 +116,6 @@ app.use(passportRouter);
 // UserLogin.register({username:'Paul', active: false}, 'test')
 // UserLogin.register({username:'Drew', active: false}, 'test')
 
-UserLogin.register({username:'Manech', active: false}, 'Matilda')
-
 app.listen(config.listenPort);
 console.log("Launching! Now listening on port", config.listenPort);
 
