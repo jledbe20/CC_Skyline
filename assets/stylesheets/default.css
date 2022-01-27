@@ -161,7 +161,7 @@ footer a:hover {
     margin-right: 10px;
 }
 
-/* Main content of the naviagtion for the public side, 
+/* Main content of the navigation for the public side, 
 will have its own internal grid after being assigned a large area of the current grid for the header */
 #public_header_row{
     grid-column: 2 / 6;
@@ -651,6 +651,15 @@ aside {
 
 .event_link:visited {
     color: inherit;
+}
+
+.calNav a:link {
+    text-decoration: none;
+}
+
+.calNav a:hover {
+    font-weight: bold;
+    /* text-decoration: underline; */
 }
 
 /* Request Form page */

@@ -12,9 +12,8 @@
         
         <main id="public_main">
           <div id="calendarFrame">
-            <h2 id="calendarMonth"><%=month.name%> <%=yearNum%></h2>
 
-            <%- include ('../partials/calendar', {month:month}); -%>
+            <h2 id="calendarMonth"><%=month.name%> <%=yearNum%></h2>
 
             <% // Make links to previous and next months.
             let nextMonth = monthNum + 1;
@@ -29,8 +28,12 @@
               prevMonth = 11;
               prevYear--;
             }%> 
-            <a href= <%=`/calendar/${prevMonth}/${prevYear}`%>>Previous Month</a>
-            <a href= <%=`/calendar/${nextMonth}/${nextYear}`%>>Next Month</a>
+            <div class = "calNav"><a href= <%=`/calendar/${prevMonth}/${prevYear}`%>><  Last Month</a>
+            |
+            <a href= <%=`/calendar/${nextMonth}/${nextYear}`%>>Next Month  ></a></div>
+            <br><br>
+            <%- include ('../partials/calendar', {month:month}); -%>
+
           </div>
         </main>
 
