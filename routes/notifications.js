@@ -20,7 +20,7 @@ async function getNotifications(query){
 // Approve a given request
 router.post('/updateRequest', urlencodedParser, async function(req, res){
 	// TODO: Change this password validation to instead check the user's authentication (should be admin only)
-    // TODO: Make this asynchronous for the user, so that the page doesn't reload.
+    // TODO: Make this asynchronous on the user side (eg. AJAX), so that the page doesn't reload.
 	if (req.body.pass != 'password'){
         return res.send('Error: Invalid Password');
     }
@@ -30,7 +30,7 @@ router.post('/updateRequest', urlencodedParser, async function(req, res){
 
     if (req.body.approve == ''){
         let toSave = new Notification({requestName: request.requestName, requestDescription: request.requestDescription, 
-            requestColorHex: request.requestColorHex, requestDate: request.requestDate, 
+            requestColorHex: request.requestColorHex, requestDates: request.requestDates, 
             recurringEvent: request.recurringEvent, approvalRejectionComments: request.approvalRejectionComments});
         toSave.save()
     }
@@ -60,7 +60,7 @@ router.get('/', async function (req, res) {
         try{
             date = rawNotif.requestDates.startDate.toLocaleDateString("en-US", options);
         } catch (e){
-            // do nothing
+            console.log('Error: Malformed Notification Object: ' + rawNotif)
         }
         let processed = [
             rawNotif.requestName,
@@ -87,7 +87,7 @@ router.get('/test', async function (req, res) {
         try{
             date = rawNotif.requestDates.startDate.toLocaleDateString("en-US", options);
         } catch (e){
-            // do nothing
+            console.log('Error: Malformed Request Object: ' + rawNotif)
         }
         let processed = [
             rawNotif.requestName,
